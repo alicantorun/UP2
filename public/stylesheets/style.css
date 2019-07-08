@@ -19,4 +19,12 @@ a {
   border: 1px solid black;
   height: 90vh; }
 
+.swipe-wrapper {
+  border: 1px solid black;
+  height: 40vh; }
+
+.swipeview-wrapper {
+  width: 45vh;
+  height: 50vh; }
+
 /*# sourceMappingURL=style.css.map */

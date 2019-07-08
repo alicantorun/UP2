@@ -9,9 +9,10 @@ router.get("/createevent", (req, res, next) => {
 });
 
 router.post("/createevent", (req, res, next) => {
-  const { name, description, latitude, longtitude } = req.body;
+  const { name, description, imageUrl, latitude, longtitude } = req.body;
   Event.create({
     name,
+    imageUrl,
     description,
     location: {
       type: "Point",
