@@ -20,18 +20,16 @@ mongoose
     console.error("Error connecting to mongo", err);
   });
 
-/* 
 let users = [
   {
     username: "alice",
-    password: bcrypt.hashSync("alice", bcrypt.genSaltSync(bcryptSalt)),
+    password: bcrypt.hashSync("alice", bcrypt.genSaltSync(bcryptSalt))
   },
   {
     username: "bob",
-    password: bcrypt.hashSync("bob", bcrypt.genSaltSync(bcryptSalt)),
+    password: bcrypt.hashSync("bob", bcrypt.genSaltSync(bcryptSalt))
   }
-]
-*/
+];
 
 User.deleteMany()
   .then(() => {
