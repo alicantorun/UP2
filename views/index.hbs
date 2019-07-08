@@ -17,12 +17,24 @@
   </div>
   <div id="map" class="row content-wrapper"></div>
 
+
 </div>
 
 <script>
+
   mapboxgl.accessToken = 'pk.eyJ1IjoiYWxpY2FudG9ydW4iLCJhIjoiY2p4cHU0M3NwMDJ1aDNjcjNsNjNsazM0ciJ9.sriMIOay4kEmZcUcJHP-Pw';
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11'
   });
+
+  const events = {{{ JSON events }}}
+
+  events.forEach(event => {
+    let marker = new mapboxgl.Marker()
+      .setLngLat(event.location.coordinates)
+      .addTo(map)
+  })
+
+
 </script>
