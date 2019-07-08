@@ -6,6 +6,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
+const Event = require("../models/Event");
 
 const bcryptSalt = 10;
 
@@ -20,14 +21,24 @@ mongoose
 
 let users = [
   {
-    username: "alice",
-    password: bcrypt.hashSync("alice", bcrypt.genSaltSync(bcryptSalt)),
+    name: "Alican",
+    lastname: "Torun",
+    email: "alican@torun.com",
+    password: bcrypt.hashSync("alican", bcrypt.genSaltSync(bcryptSalt)),
+    age: 28,
+    languages: ["turkish", "english", "spanish"],
+    keyInterests:
+    userType: 
+    bio: "i am a cheerful person, who want`s"
+
   },
   {
     username: "bob",
     password: bcrypt.hashSync("bob", bcrypt.genSaltSync(bcryptSalt)),
   }
 ]
+
+
 
 User.deleteMany()
 .then(() => {
