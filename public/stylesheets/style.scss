@@ -34,7 +34,7 @@ a {
   height: 50vh;
 }
 
-#swipe-container {
+#swipe-event-container {
   width: 500px;
   margin: auto !important;
   display: block;
@@ -48,8 +48,7 @@ a {
   -ms-user-select: none;
   user-select: none;
 }
-
-.swipe-card {
+.swipe-event-card {
   display: none;
   background: #fff;
   border-radius: 10px;
@@ -79,7 +78,7 @@ a {
   cursor: w-resize;
   z-index: 10;
 }
-.swipe-image {
+.swipe-event-photo {
   background: #222;
   width: 340px;
   height: 340px;

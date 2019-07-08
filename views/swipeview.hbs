@@ -11,8 +11,6 @@
 <div class="container-fluid main-wrapper swipeview-wrapper">
   <div class="row nav-wrapper justify-content-between align-items-center">
     <div class="p-2">THIS IS SWIPE VIEW</div>
-
-
   </div>
   <div id="map" class="row content-wrapper swipe-wrapper"></div>
 
@@ -21,22 +19,10 @@
 
 <script>
 
-  mapboxgl.accessToken = 'pk.eyJ1IjoiYWxpY2FudG9ydW4iLCJhIjoiY2p4cHU0M3NwMDJ1aDNjcjNsNjNsazM0ciJ9.sriMIOay4kEmZcUcJHP-Pw';
-  var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11'
-  });
 
   const events = {{{ JSON events }}}
 
   events.forEach(event => {
-    let popup = new mapboxgl.Popup({ offset: 0, className: 'my-class' })
-      .setHTML(`<div class="popup"><p>${event.name}</p><p>${event.description}</p><img src="${event.imageUrl}" alt=""></div>`)
-      .setMaxWidth("none")
-
-    let marker = new mapboxgl.Marker()
-      .setLngLat(event.location.coordinates)
-      .setPopup(popup)
-      .addTo(map)
+    console.log(event);
   })
 </script>

@@ -19,12 +19,22 @@ router.post("/createevent", (req, res, next) => {
       coordinates: [latitude, longtitude]
     }
   })
-
     .then(data => {
       res.redirect("/");
     })
     .catch(err => {
       console.log(err);
+    });
+});
+
+router.get("/events", (req, res, next) => {
+  Event.find({})
+    .then(events => {
+      console.log(events);
+      res.render("events/events", { eventsList: events });
+    })
+    .catch(err => {
+      console.log("Error while retrieving the books: ", err);
     });
 });
 
