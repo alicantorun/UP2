@@ -12,7 +12,7 @@ const eventSchema = new Schema({
   }],
   category: {
     type: String,
-    enum: ['sports', "culture", "food"]
+    enum: ['sports', "culture", "food", "funny business"]
   },
   name: {
     type: String,
@@ -37,7 +37,8 @@ const eventSchema = new Schema({
   location: {
     type: {
       type: String, 
-      enum: ['Point'], 
+      enum: ['Point'],
+      default: 'Point', 
       required: true
     },
     coordinates: {

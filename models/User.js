@@ -12,17 +12,17 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-  email: {
+  username: {
     type: String,
     required: true,
     unique: true
   },
   password:  {
     type: String, 
-    lowercase: true, 
-    required: [true, "can't be blank"], 
-    match: [/\S+@\S+\.\S+/, 'is invalid'], 
-    index: true
+    // lowercase: true, 
+    required: [true, "can't be blank"] 
+    // match: [/\S+@\S+\.\S+/, 'is invalid'], 
+    // index: true
   },
   age: {
     type: Number,
@@ -44,7 +44,7 @@ const userSchema = new Schema({
   },
   bio: {
     type: String,
-    minlength: 15,
+    minlength: 1,
     maxlength: 300,
   },
   // country of origin: String,
