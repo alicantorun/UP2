@@ -10,23 +10,23 @@ const userSchema = new Schema({
   },
   lastname: {
     type: String,
-    required: true
+    // required: true
   },
   username: {
     type: String,
-    required: true,
-    unique: true
+    // required: true,
+    // unique: true
   },
   password:  {
     type: String, 
     // lowercase: true, 
-    required: [true, "can't be blank"] 
+    // required: [true, "can't be blank"] 
     // match: [/\S+@\S+\.\S+/, 'is invalid'], 
     // index: true
   },
   age: {
     type: Number,
-    required: true,
+    // required: true,
     min: 18,
     max: 99
   },
@@ -47,6 +47,7 @@ const userSchema = new Schema({
     minlength: 1,
     maxlength: 300,
   },
+  facebookId: String
   // country of origin: String,
   // profileImgUrl: String, 
     // feelingValue: { 

@@ -5,7 +5,7 @@ const User = require("../models/User");
 const Event = require("../models/Event");
 
 router.get("/createevent", (req, res, next) => {
-  res.render("events/createevent", { message: req.flash("error") });
+ res.render("events/createevent", { message: req.flash("error") });
 });
 
 router.post("/createevent", (req, res, next) => {
