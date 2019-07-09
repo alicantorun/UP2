@@ -29,10 +29,36 @@ router.post("/createevent", loginCheck(), (req, res, next) => {
     });
 });
 
-router.get("/events", (req, res, next) => {
+
+
+router.get("/:eventId", (req, res, next) => {
+  Event.findById(req.params.eventId)
+  .populate('creator')
+  .then(event => {
+    res.render('events/detail', { event })
+  }).catch(err => {
+    next(err)
+  })
+})
+
+// create a join event route
+// post
+// /:eventId
+
+// /5d24b9b61999b82b5b216fac/join
+router.post('/:eventId/join', (req, res, next) => {
+  Event.findByIdAndUpdate(req.params.eventId, { $push: { attendees: req.user._id } }).then(() => {
+    res.redirect('/protected/profile')
+  }).catch(err => {
+    next(err)
+  })
+})
+
+
+router.get("/", (req, res, next) => {
   Event.find({})
+    .populate('creator')
     .then(events => {
-      console.log(events);
       res.render("events/events", { eventsList: events });
     })
     .catch(err => {

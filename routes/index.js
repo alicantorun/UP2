@@ -17,7 +17,7 @@ router.get("/", (req, res, next) => {
     });
 });
 
-/* GET profile page */
+/* GET profile page  get rid of*/
 router.get("/profile", (req, res, next) => {
   Event.find({})
     .then(events => {

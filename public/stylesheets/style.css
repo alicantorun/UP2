@@ -94,14 +94,4 @@ a {
   left: 40px;
   text-shadow: none; }
 
-
-.profile-header {
-  transform: translateY(5rem);
-}
-
-body {
-  background: #654ea3;
-  background: -webkit-linear-gradient(to right, #654ea3, #eaafc8);
-  background: linear-gradient(to right, #654ea3, #eaafc8);
-  min-height: 100vh;
-}
+/*# sourceMappingURL=style.css.map */
