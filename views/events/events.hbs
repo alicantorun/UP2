@@ -1,0 +1,38 @@
+<div id="swipe-event-container">
+  {{#each eventsList}}
+  {{> eventCard}}
+  {{/each}}
+</div>
+
+
+<script>$(document).ready(function () {
+
+    $(".swipe-event-card").on("swiperight", function () {
+      console.log("swiped")
+      console.log(this);
+      // axios call to a route that updates the event by adding the user in the attendees array
+
+      $(this).addClass('rotate-left').delay(300).fadeOut(1);
+      $('.swipe-event-card').find('.status').remove();
+
+      $(this).append('<div class="status like">Like!</div>');
+      if ($(this).is(':last-child')) {
+        $('.swipe-event-card:nth-child(1)').removeClass('rotate-left rotate-right').fadeIn(300);
+      } else {
+        $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
+      }
+    });
+
+    $(".swipe-event-card").on("swipeleft", function () {
+      $(this).addClass('rotate-right').delay(300).fadeOut(1);
+      $('.swipe-event-card').find('.status').remove();
+      $(this).append('<div class="status dislike">Dislike!</div>');
+
+      if ($(this).is(':last-child')) {
+        $('.swipe-event-card:nth-child(1)').removeClass('rotate-left rotate-right').fadeIn(300);
+      } else {
+        $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
+      }
+    });
+
+  });</script>

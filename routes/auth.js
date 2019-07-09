@@ -1,5 +1,6 @@
 const express = require("express");
-const passport = require('passport');
+const passport = require("passport");
+// const FacebookStrategy = require("passport-facebook").Strategy;
 const router = express.Router();
 const User = require("../models/User");
 
@@ -7,25 +8,37 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
-
 router.get("/login", (req, res, next) => {
-  res.render("auth/login", { "message": req.flash("error") });
+  res.render("auth/login", { message: req.flash("error") });
 });
 
-router.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
-  failureRedirect: "/auth/login",
-  failureFlash: true,
-  passReqToCallback: true
-}));
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/auth/login",
+    failureFlash: true,
+    passReqToCallback: true
+  })
+);
 
 router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
 });
 
 router.post("/signup", (req, res, next) => {
-  const username = req.body.username;
-  const password = req.body.password;
+  console.log(req.body);
+  const {
+    name,
+    lastname,
+    username,
+    password,
+    age,
+    languages,
+    keyInterests,
+    userType,
+    bio
+  } = req.body;
   if (username === "" || password === "") {
     res.render("auth/signup", { message: "Indicate username and password" });
     return;
@@ -42,18 +55,73 @@ router.post("/signup", (req, res, next) => {
 
     const newUser = new User({
       username,
-      password: hashPass
+      password: hashPass,
+      name,
+      lastname,
+      age,
+      languages,
+      keyInterests,
+      userType,
+      bio
     });
 
-    newUser.save()
-    .then(() => {
-      res.redirect("/");
-    })
-    .catch(err => {
-      res.render("auth/signup", { message: "Something went wrong" });
-    })
+    newUser
+      .save()
+      .then(() => {
+        res.redirect("/");
+      })
+      .catch(err => {
+        console.log(err);
+        res.render("auth/signup", { message: "Something went wrong!" });
+      });
   });
 });
+
+// passport.use(
+//   new FacebookStrategy(
+//     {
+//       clientID: process.env.FACEBOOK_CLIENT_ID,
+//       clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+//       callbackURL: "http://localhost:3000/auth/facebook/callback",
+//       profileFields: [
+//         "id",
+//         "displayName",
+//         "email",
+//         "name",
+//         "gender",
+//         "picture.type(large)"
+//       ]
+//     },
+//     (accessToken, refreshToken, profile, done) => {
+//       console.log(profile);
+//       User.findOne({ facebookId: profile.id })
+//         .then(user => {
+//           if (user) return done(null, user);
+
+//           return User.create({
+//             facebookId: profile.id,
+//             name: profile.name.givenName,
+//             lastname: profile.name.familyName,
+//             image: profile.photos[0].value
+//           }).then(newUser => {
+//             return done(null, newUser);
+//           });
+//         })
+//         .catch(err => {
+//           done(err);
+//         });
+//     }
+//   )
+// );
+
+// router.get("/facebook", passport.authenticate("facebook"));
+// router.get(
+//   "/facebook/callback",
+//   passport.authenticate("facebook", {
+//     successRedirect: "/profile",
+//     failureRedirect: "/login"
+//   })
+// );
 
 router.get("/logout", (req, res) => {
   req.logout();

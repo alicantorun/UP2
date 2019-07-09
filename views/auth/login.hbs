@@ -1,8 +1,7 @@
-
 <h2>Login</h2>
 
 <form action="/auth/login" method="POST" id="form-container">
-  <label for="username">Username</label>
+  <label for="username">eMail</label>
   <input id="username" type="text" name="username" placeholder="JonSnow">
 
   <br><br>
@@ -11,7 +10,7 @@
   <input id="password" type="password" name="password" placeholder="Your password">
   <br>
   {{#if message }}
-    <div class="error-message">{{ message }}</div>
+  <div class="error-message">{{ message }}</div>
   {{/if}}
 
   <br><br>
@@ -23,3 +22,7 @@
     <a href="/auth/signup">Signup</a>
   </p>
 </form>
+
+{{!-- <form action="/auth/facebook/" method="GET" id="form-container">
+<button>login with facebook</button>
+</form> --}}

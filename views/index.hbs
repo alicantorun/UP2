@@ -1,2 +1,37 @@
+<!-- TITLE AND WELCOME MSSG RENDER
+
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+-->
+
+
+
+
+
+<div class="container-fluid main-wrapper">
+  <div id="map" class="row content-wrapper"></div>
+</div>
+
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoibW9lYmltYXAiLCJhIjoiY2p4dnVuYnFnMDM3YzNocXA2ZWxmNWVmYyJ9.msRoY578HfxGqb0JzGBbhA';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    center: [13.373217, 52.506463
+    ], // starting position [lng, lat]
+    zoom: 12,
+    style: 'mapbox://styles/moebimap/cjxw2mkwv0bio1drm4zitmby9'
+  });
+
+  const events = {{{ JSON events }}}
+
+  events.forEach(event => {
+    let popup = new mapboxgl.Popup({ offset: 0, className: 'my-class' })
+      .setHTML(`<div class="popup"><p>${event.name}</p><p>${event.description}</p><img src="${event.imageUrl}" alt=""></div>`)
+      .setMaxWidth("none")
+
+    let marker = new mapboxgl.Marker()
+      .setLngLat(event.location.coordinates)
+      .setPopup(popup)
+      .addTo(map)
+  })
+</script>

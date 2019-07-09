@@ -1,0 +1,65 @@
+<h2>Create An Event</h2>
+
+<form action="/events/createevent" method="POST" id="form-container">
+
+  <label for="name">Name:</label>
+  <input id="name" type="text" name="name" placeholder="Name...">
+
+  <label for="imageUrl">Image Url:</label>
+  <input id="imageUrl" type="url" name="imageUrl" placeholder="Image link...">
+
+  <label for="textarea">Description:</label>
+  <textarea id="description" type="text" name="description" rows="4" cols="50">
+Tell us about your event... 
+  </textarea>
+
+  <label for="name">Coordinates:</label>
+  <input id="latitude" type="text" name="latitude" placeholder="">
+  <input id="longtitude" type="text" name="longtitude" placeholder="">
+
+  <div id='map' style='width: 400px; height: 300px;'></div>
+  {{!-- <pre id='coordinates' class='coordinates'></pre> --}}
+
+  <!-- Error Msg
+  {{#if message }}
+  <div class="error-message">{{ message }}</div>
+  {{/if}}
+-->
+
+
+  <button>Create Event</button>
+
+</form>
+
+<script>
+  mapboxgl.accessToken = "pk.eyJ1IjoiYWxpY2FudG9ydW4iLCJhIjoiY2p4cHU0M3NwMDJ1aDNjcjNsNjNsazM0ciJ9.sriMIOay4kEmZcUcJHP-Pw";
+  var latitude = document.getElementById('latitude');
+  var longtitude = document.getElementById('longtitude');
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [0, 0],
+    zoom: 2
+  });
+
+  var marker = new mapboxgl.Marker({
+    draggable: true
+  })
+    .setLngLat([0, 0])
+    .addTo(map);
+
+  function onDragEnd() {
+    var lngLat = marker.getLngLat();
+    latitude.style.display = 'block';
+    latitude.value = lngLat.lng
+    longtitude.style.display = 'block';
+    longtitude.value = lngLat.lat;
+    const latitudeData = lngLat.lat;
+    const longtitudeData = lngLat.lng;
+
+    console.log(latitudeData)
+
+  }
+
+  marker.on('dragend', onDragEnd);
+</script>
