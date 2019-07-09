@@ -23,7 +23,7 @@ mongoose
 
 let users = [
   {
-    name: "Alican",
+    name: "Alicaaaaan",
     lastname: "Torun",
     username: "alican@torun.com",
     password: bcrypt.hashSync("alican", bcrypt.genSaltSync(bcryptSalt)),
@@ -32,9 +32,8 @@ let users = [
     keyInterests: "funny business",
     userType: "Admin",
     bio: "i am a cheerful person, who want`s"
-
   },
- {
+  {
     name: "Alex",
     lastname: "Moebius",
     username: "alexmoebius13@gmail.com",
@@ -55,8 +54,8 @@ let users = [
     keyInterests: "Pellowtalk",
     userType: "User",
     bio: "ich muß uben"
-    },
-    {
+  },
+  {
     name: "Paul",
     lastname: "Hellweg",
     username: "paul@hellweg.com",
@@ -66,10 +65,10 @@ let users = [
     keyInterests: "Devan",
     userType: "User",
     bio: "i live my life husteling"
-    }
-]
+  }
+];
 
-// let events = 
+// let events =
 //   {
 //     creator: "Alex"
 //     attendees: ["Alex", "Paul", "Devan", "Alican"],
@@ -77,23 +76,21 @@ let users = [
 //     name: "Ball"
 //     description: "we play with balls"
 //     date: new Date (2019, 07, 12)
-//     // startTime: 
+//     // startTime:
 //     // endTime:
 //     location:{
 //       type: {
-//         type: String, 
+//         type: String,
 //         enum: ['Point'],
-//         default: 'Point', 
+//         default: 'Point',
 //         required: true
 //       },
 //       coordinates: {
 //         type: [10, 10],
 //         required: true
-//       }  
+//       }
 
 //   }
-
-
 
 User.deleteMany()
   .then(() => {

@@ -91,6 +91,7 @@ app.use("/events", eventRoutes);
 const profileRoutes = require("./routes/profile");
 app.use("/profile", profileRoutes);
 
-
+const protectedRoutes = require("./routes/protected");
+app.use("/protected", protectedRoutes);
 
 module.exports = app;

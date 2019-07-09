@@ -3,17 +3,19 @@ const passport = require("passport");
 const router = express.Router();
 const User = require("../models/User");
 const Event = require("../models/Event");
+const loginCheck = require("../utils/loginCheck");
 
-router.get("/createevent", (req, res, next) => {
- res.render("events/createevent", { message: req.flash("error") });
+router.get("/createevent", loginCheck(), (req, res, next) => {
+  res.render("events/createevent", { message: req.flash("error") });
 });
 
-router.post("/createevent", (req, res, next) => {
+router.post("/createevent", loginCheck(), (req, res, next) => {
   const { name, description, imageUrl, latitude, longtitude } = req.body;
   Event.create({
     name,
     imageUrl,
     description,
+    creator: req.user._id,
     location: {
       type: "Point",
       coordinates: [latitude, longtitude]

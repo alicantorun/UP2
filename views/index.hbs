@@ -9,16 +9,16 @@
 
 
 <div class="container-fluid main-wrapper">
-
-
   <div id="map" class="row content-wrapper"></div>
 </div>
 
 <script>
-
   mapboxgl.accessToken = 'pk.eyJ1IjoiYWxpY2FudG9ydW4iLCJhIjoiY2p4cHU0M3NwMDJ1aDNjcjNsNjNsazM0ciJ9.sriMIOay4kEmZcUcJHP-Pw';
   var map = new mapboxgl.Map({
     container: 'map',
+    center: [13.373217, 52.506463
+    ], // starting position [lng, lat]
+    zoom: 12,
     style: 'mapbox://styles/mapbox/streets-v11'
   });
 

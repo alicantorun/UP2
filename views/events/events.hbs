@@ -8,6 +8,10 @@
 <script>$(document).ready(function () {
 
     $(".swipe-event-card").on("swiperight", function () {
+      console.log("swiped")
+      console.log(this);
+      // axios call to a route that updates the event by adding the user in the attendees array
+
       $(this).addClass('rotate-left').delay(300).fadeOut(1);
       $('.swipe-event-card').find('.status').remove();
 

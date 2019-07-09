@@ -18,13 +18,13 @@
   <input id="password" type="password" name="password" placeholder="Your password">
 
   <label for="textarea">Bio:</label>
-  <textarea rows="4" cols="50">
+  <textarea rows="4" cols="50" name="bio">
 Tell us about yourself... 
   </textarea>
 
 
   {{#if message }}
-  <div class="error-message">{{ message }}</div>
+  <div class=" error-message">{{ message }}</div>
   {{/if}}
 
 
