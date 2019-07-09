@@ -15,8 +15,17 @@ router.get("/", (req, res, next) => {
     .catch(err => {
       console.log("Error while retrieving the books: ", err);
     });
+});
 
-  //res.render("index");
+/* GET profile page */
+router.get("/profile", (req, res, next) => {
+  Event.find({})
+    .then(events => {
+      res.render("profile");
+    })
+    .catch(err => {
+      console.log("Error while getting profile page: ", err);
+    });
 });
 
 module.exports = router;
