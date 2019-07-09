@@ -91,7 +91,7 @@ passport.use(
 router.get("/facebook",passport.authenticate("facebook"));
 router.get("/facebook/callback",
 passport.authenticate("facebook", { successRedirect: "/profile",
-failureRedirect: "/login" }));
+failureRedirect: "/login"}));
 
 
 router.get("/logout", (req, res) => {
