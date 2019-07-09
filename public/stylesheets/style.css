@@ -20,19 +20,11 @@ a {
   height: 90vh; }
 
 /* TINDER CARD SWIPING EFFECT IMPLEMENTATION */
-.swipe-wrapper {
-  border: 1px solid black;
-  height: 40vh; }
-
-.swipeview-wrapper {
-  width: 45vh;
-  height: 50vh; }
-
 #swipe-event-container {
-  width: 500px;
+  width: 100vh;
   margin: auto !important;
   display: block;
-  height: 500px;
+  height: 100vh;
   position: relative;
   list-style-type: none;
   -webkit-touch-callout: none;
@@ -48,11 +40,8 @@ a {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   color: #fff;
-  padding: 20px;
-  width: 360px;
-  height: 360px;
-  top: 50px;
-  left: 50px;
+  width: 100vh;
+  height: 100vh;
   position: absolute;
   cursor: hand; }
 
@@ -74,11 +63,9 @@ a {
 
 .swipe-event-photo {
   background: #222;
-  width: 340px;
-  height: 340px;
+  width: 100vh;
+  height: 100vh;
   display: block;
-  margin-top: 10px;
-  margin-left: 10px;
   background-size: auto 160% !important;
   background-position: center;
   background-repeat: no-repeat; }

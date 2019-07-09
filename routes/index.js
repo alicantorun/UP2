@@ -19,16 +19,4 @@ router.get("/", (req, res, next) => {
   //res.render("index");
 });
 
-router.get("/swipeview", (req, res, next) => {
-  Event.find({})
-    .then(events => {
-      res.render("swipeview", { events });
-    })
-    .catch(err => {
-      console.log("Error while retrieving the books: ", err);
-    });
-
-  //res.render("index");
-});
-
 module.exports = router;

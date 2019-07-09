@@ -1,36 +1,7 @@
-<div id="swipe-event-container">
-  <div class="swipe-event-card" style="display: block;">
-    <div class="swipe-event-photo" style="display: block; background-image: url({{imageUrl}})">
-      {{name}}
-    </div>
+<div class="swipe-event-card" style="display: block;">
+  <div class="swipe-event-photo" style="display: block; background-image: url({{imageUrl}})">
+    <div class="event-card-name text-align">{{name}}</div>
+    <div class="event-card-description">{{description}}</div>
+    <div class="event-card-creator">{{creator}}</div>
   </div>
 </div>
-
-{{!-- <script>$(document).ready(function () {
-
-    $(".swipe-event-card").on("swiperight", function () {
-      $(this).addClass('rotate-left').delay(700).fadeOut(1);
-      $('.swipe-event-card').find('.status').remove();
-
-      $(this).append('<div class="status like">Like!</div>');
-      if ($(this).is(':last-child')) {
-        $('.swipe-event-card:nth-child(1)').removeClass('rotate-left rotate-right').fadeIn(300);
-      } else {
-        $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
-      }
-    });
-
-    $(".swipe-event-card").on("swipeleft", function () {
-      $(this).addClass('rotate-right').delay(700).fadeOut(1);
-      $('.swipe-event-card').find('.status').remove();
-      $(this).append('<div class="status dislike">Dislike!</div>');
-
-      if ($(this).is(':last-child')) {
-        $('.swipe-event-card:nth-child(1)').removeClass('rotate-left rotate-right').fadeIn(300);
-        alert('OUPS');
-      } else {
-        $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
-      }
-    });
-
-  });</script> --}}
