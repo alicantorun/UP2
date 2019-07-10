@@ -13,7 +13,7 @@ router.get("/profile", loginCheck(), (req, res) => {
   .populate("creator")
   .then(events => {
     console.log(events);
-    res.render("protected/profile", { userInfo, events });
+    res.render("protected/profile", { userInfo, events, user: req.user });
   });
 });
 

@@ -1,5 +1,7 @@
 <h2>Create An Event</h2>
 
+
+
 <form action="/events/createevent" method="POST" id="form-container">
 
   <label for="name">Name:</label>
@@ -32,14 +34,14 @@ Tell us about your event...
 </form>
 
 <script>
-  mapboxgl.accessToken = "pk.eyJ1IjoiYWxpY2FudG9ydW4iLCJhIjoiY2p4cHU0M3NwMDJ1aDNjcjNsNjNsazM0ciJ9.sriMIOay4kEmZcUcJHP-Pw";
+  mapboxgl.accessToken = "pk.eyJ1IjoibW9lYmltYXAiLCJhIjoiY2p4dnVuYnFnMDM3YzNocXA2ZWxmNWVmYyJ9.msRoY578HfxGqb0JzGBbhA";
   var latitude = document.getElementById('latitude');
   var longtitude = document.getElementById('longtitude');
   var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: [0, 0],
-    zoom: 2
+    center: [13.373217, 52.506463],
+    zoom: 12,
+    style: 'mapbox://styles/moebimap/cjxw2mkwv0bio1drm4zitmby9'
   });
 
   var marker = new mapboxgl.Marker({

@@ -7,10 +7,6 @@ html {
 a {
   color: #00b7ff; }
 
-.main-wrapper {
-  border: 3px solid black;
-  height: 100vh; }
-
 .nav-wrapper {
   border: 1px solid black;
   height: 10vh; }
