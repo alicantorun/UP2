@@ -1,31 +1,36 @@
-<h2>Edit User Info</h2>
+<div class=" div-sign-in text-center">
+  <form action="/auth/signup-edit" method="POST" class="form-signin">
 
-<form action="/auth/signup-edit" method="POST" id="form-container">
+    <h1 class="h3 mb-3 font-weight-normal">Edit Account Details</h1>
 
-  <label for="name">Name:</label>
-  <input id="name" type="text" name="name" value="{{user.name}}" placeholder="Name...">
+    <label for="name" class="sr-only">Name:</label>
+    <input id="name" type="text" name="name" class="form-control" value="{{user.name}}" placeholder="Name...">
 
-  <label for="lastname">Lastname:</label>
-  <input id="lastname" type="text" name="lastname" value="{{user.lastname}}" placeholder="Lastname...">
+    <label for="lastname" class="sr-only">Lastname:</label>
+    <input id="lastname" type="text" name="lastname" class="form-control" value="{{user.lastname}}"
+      placeholder="Lastname...">
 
-  <label for="imageUrl">Image Url:</label>
-  <input id="imageUrl" type="url" name="imageUrl" value="{{user.imageUrl}}" placeholder="Image link...">
+    <label for="imageUrl" class="sr-only">Image Url:</label>
+    <input id="imageUrl" type="url" name="imageUrl" class="form-control" value="{{user.imageUrl}}"
+      placeholder="Image link...">
 
-  <label for="age">Age:</label>
-  <input id="age" type="text" name="age" value="{{user.age}}" placeholder="Age...">
+    <label for="age" class="sr-only">Age:</label>
+    <input id="age" type="text" name="age" class="form-control" value="{{user.age}}" placeholder="Age...">
 
-  <label for="textarea">Bio:</label>
-  <textarea rows="4" cols="50" name="bio" value="{{user.bio}}">
+
+    <label for="textarea" class="sr-only">Bio:</label>
+    <textarea rows="4" cols="50" class="form-control" value="{{user.bio}}" name="bio">
 Tell us about yourself... 
   </textarea>
 
 
-  {{#if message }}
-  <div class=" error-message">{{ message }}</div>
-  {{/if}}
+    {{#if message }}
+    <div class=" error-message">{{ message }}</div>
+    {{/if}}
 
 
 
-  <button type="submit">Edit</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Edit </button>
 
-</form>
+  </form>
+</div>

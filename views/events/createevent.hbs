@@ -1,55 +1,58 @@
-<h2>Create An Event</h2>
+<div class="row">
+  <div class="div-sign-in text-center col-4">
+    <form action="/events/createevent" method="POST" class="form-signin">
 
+      <h1 class="h3 mb-3 font-weight-normal">Create Your Event</h1>
 
+      <label for="name" class="sr-only">Name:</label>
+      <input id="name" type="text" name="name" class="form-control" placeholder="Name...">
 
-<form action="/events/createevent" method="POST" id="form-container">
+      <label for="imageUrl" class="sr-only">Image Url:</label>
+      <input id="imageUrl" type="url" name="imageUrl" class="form-control" placeholder="Image link...">
 
-  <label for="name">Name:</label>
-  <input id="name" type="text" name="name" placeholder="Name...">
-
-  <label for="imageUrl">Image Url:</label>
-  <input id="imageUrl" type="url" name="imageUrl" placeholder="Image link...">
-
-  <label for="textarea">Description:</label>
-  <textarea id="description" type="text" name="description" rows="4" cols="50">
-Tell us about your event... 
+      <label for="textarea" class="sr-only">Description:</label>
+      <textarea rows="4" cols="50" class="form-control" name="description">
+What is your event about...? 
   </textarea>
 
-  <label for="name">Coordinates:</label>
-  <input id="latitude" type="text" name="latitude" placeholder="">
-  <input id="longtitude" type="text" name="longtitude" placeholder="">
+      <label for="name" class="sr-only">Coordinates:</label>
+      <input id="latitude" type="text" name="latitude" class="form-control" placeholder="">
+      <input id="longtitude" type="text" name="longtitude" class="form-control" placeholder="">
 
-  <div id='map' style='width: 400px; height: 300px;'></div>
-  {{!-- <pre id='coordinates' class='coordinates'></pre> --}}
-
-  <!-- Error Msg
-  {{#if message }}
-  <div class="error-message">{{ message }}</div>
-  {{/if}}
--->
+      {{#if message }}
+      <div class=" error-message">{{ message }}</div>
+      {{/if}}
 
 
-  <button id="create-event">Create Event</button>
 
-</form>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Create Event</button>
+
+    </form>
+  </div>
+
+  <div class="col-8 mt-5" id='map' style='width: 200px; height: 500px;'></div>
+
+</div>
+
+
+</div>
+
 
 <script>
-  mapboxgl.accessToken = "pk.eyJ1IjoibW9lYmltYXAiLCJhIjoiY2p4dnVuYnFnMDM3YzNocXA2ZWxmNWVmYyJ9.msRoY578HfxGqb0JzGBbhA";
+  mapboxgl.accessToken = "pk.eyJ1IjoiYWxpY2FudG9ydW4iLCJhIjoiY2p4cHU0M3NwMDJ1aDNjcjNsNjNsazM0ciJ9.sriMIOay4kEmZcUcJHP-Pw";
   var latitude = document.getElementById('latitude');
   var longtitude = document.getElementById('longtitude');
   var map = new mapboxgl.Map({
     container: 'map',
-    center: [13.373217, 52.506463],
-    zoom: 12,
-    style: 'mapbox://styles/moebimap/cjxw2mkwv0bio1drm4zitmby9'
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [0, 0],
+    zoom: 2
   });
-
   var marker = new mapboxgl.Marker({
     draggable: true
   })
     .setLngLat([0, 0])
     .addTo(map);
-
   function onDragEnd() {
     var lngLat = marker.getLngLat();
     latitude.style.display = 'block';
@@ -58,13 +61,7 @@ Tell us about your event...
     longtitude.value = lngLat.lat;
     const latitudeData = lngLat.lat;
     const longtitudeData = lngLat.lng;
-
     console.log(latitudeData)
-
   }
-
-  document.querySelector("#create-event").addEventListener("click", () => {
-  })
-
   marker.on('dragend', onDragEnd);
 </script>

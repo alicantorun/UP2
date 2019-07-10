@@ -2,7 +2,8 @@ body,
 html {
   padding: 0;
   margin: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  background-color: #f5f5f5; }
 
 a {
   color: #00b7ff; }
@@ -14,6 +15,12 @@ a {
 .content-wrapper {
   border: 1px solid black;
   height: 90vh; }
+
+@media (min-width: 768px) {
+  .position-md-absolute {
+    position: absolute; }
+  .navbar-nav .nav-item:nth-child(2) {
+    margin-right: 192px; } }
 
 /* TINDER CARD SWIPING EFFECT IMPLEMENTATION */
 #swipe-event-container {
@@ -89,5 +96,54 @@ a {
   top: 50px;
   left: 40px;
   text-shadow: none; }
+
+.navbar {
+  background-color: #ff812d !important; }
+
+.navbar a {
+  color: white !important; }
+
+.div-sign-in {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5; }
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto; }
+
+.form-signin .checkbox {
+  font-weight: 400; }
+
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px; }
+
+.form-signin .form-control:focus {
+  z-index: 2; }
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0; }
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0; }
 
 /*# sourceMappingURL=style.css.map */

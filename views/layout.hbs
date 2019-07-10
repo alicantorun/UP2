@@ -29,27 +29,72 @@
   <!-- Swiping Effect -->
 
 
+  <!--BOOTSTRAP-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <!--BOOTSTRAP-->
+
+
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 
 <body>
 
-  <div class="row nav-wrapper justify-content-around align-items-center">
-    {{#if user}}
-    <div class="p-2"> <a href="/protected/profile">Profile</a></div>
-    <div class="p-2"><a href="/events/createevent">Create An Event</a></div>
-    <div class="p-2"><a href="/events">Swipe View</a></div>
-    <div class="p-2"><a href="/">Map View</a></div>
-    <div class="p-2"><a href="/auth/logout">Logout</a></div>
-    {{else}}
-    <div class="p-2"><a href="/events">Swipe View</a></div>
-    <div class="p-2"><a href="/">Map View</a></div>
-    <div class="p-2"><a href="/auth/login">Login</a></div>
-    {{/if}}
 
-  </div>
 
-  </div>
+
+
+  <nav class="navbar navbar-expand-md flex-column navbar-dark bg-dark">
+    <a class="navbar-brand align-self-center position-md-absolute" href="/"><img src="/images/UP2.png" alt="" width="50"
+        height="50"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-md-center w-100" id="navbarNav">
+      <ul class="navbar-nav text-center">
+        {{#if user}}
+        <li class="nav-item p-3">
+          <a href="/protected/profile">Profile</a>
+        </li>
+        <li class="nav-item p-3">
+          <a href="/events/createevent">Create An Event</a>
+        </li>
+        <li class="nav-item p-3">
+          <a href="/events">Swipe View</a>
+        </li>
+        <li class="nav-item p-3">
+          <a href="/">Map View</a>
+        </li>
+        <li class="nav-item p-3">
+          <a href="/auth/logout">Logout</a>
+        </li>
+        {{else}}
+        <li class="nav-item p-3">
+          <a href="/events">Swipe View</a>
+        </li>
+        <li class="nav-item p-3">
+          <a href="/">Map View</a>
+        </li>
+        <li class="nav-item p-3">
+          <a href="/auth/login">Login</a>
+        </li>
+        {{/if}}
+      </ul>
+    </div>
+  </nav>
+
+
+
+
+
 
   {{!-- <div class="bg-white shadow rounded overflow-hidden">
     <div class="px-4 pt-0 pb-4 bg-light">
