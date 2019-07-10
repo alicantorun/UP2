@@ -6,15 +6,11 @@ const Event = require("../models/Event");
 const loginCheck = require("../utils/loginCheck");
 
 router.get("/createevent", loginCheck(), (req, res, next) => {
-<<<<<<< HEAD
   console.log(req.user);
   res.render("events/createevent", {
     message: req.flash("error"),
     user: req.user
   });
-=======
-  res.render("events/createevent", { user: req.user, message: req.flash("error")});
->>>>>>> eventdetailAlex
 });
 
 router.post("/createevent", (req, res, next) => {
