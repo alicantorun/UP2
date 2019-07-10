@@ -1,0 +1,33 @@
+<h2>Edit Your Event</h2>
+
+
+<form action="/events/{{event._id}}/edit" method="POST" id="form-container">
+
+  <label for="name">Name:</label>
+  <input id="name" type="text" name="name" value="{{event.name}}" placeholder="Name...">
+
+  <label for="imageUrl">Image Url:</label>
+  <input id="imageUrl" type="url" name="imageUrl" value="{{event.imageUrl}}" placeholder="Image link...">
+
+  <label for="textarea">Description:</label>
+  <textarea id="description" type="text" name="description" value="{{event.description}}" rows="4" cols="50">
+Tell us about your event... 
+  </textarea>
+
+  <label for="name">Coordinates:</label>
+  <input id="latitude" type="text" name="latitude" value="{{event.latitude}}" placeholder="">
+  <input id="longtitude" type="text" name="longtitude" value="{{event.longtitude}}" placeholder="">
+
+  <div id='map' style='width: 400px; height: 300px;'></div>
+  {{!-- <pre id='coordinates' class='coordinates'></pre> --}}
+
+  <!-- Error Msg
+  {{#if message }}
+  <div class="error-message">{{ message }}</div>
+  {{/if}}
+-->
+
+
+  <button id="create-event">Update Event</button>
+
+</form>

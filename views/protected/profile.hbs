@@ -4,8 +4,11 @@
     <div class="bg-white shadow rounded overflow-hidden">
       <div class="px-4 pt-0 pb-4 bg-dark">
         <div class="media align-items-end profile-header">
-          <div class="profile mr-3"><img src= {{userInfo.imageUrl}} alt="..." width="130"
-              class="rounded mb-2 img-thumbnail"><a href="#" class="btn btn-dark btn-sm btn-block">Edit profile</a>
+          <div class="profile mr-3"><img src={{userInfo.imageUrl}} alt="..." width="130"
+              class="rounded mb-2 img-thumbnail"><a href="/auth/signup-edit" class="btn btn-dark btn-sm btn-block">Edit
+              profile</a>
+            <a href="/auth/signup-edit" class="btn btn-dark btn-sm btn-block">Delete
+              profile</a>
           </div>
           <div class="media-body mb-5 text-white">
             <h4 class="mt-0 mb-0">{{userInfo.name}}, {{userInfo.age}}</h4>
@@ -41,7 +44,6 @@
           {{#each events}}
 
 
-
           {{!-- {{#ifCond userInfo._id "===" creator._id}}
           Values are equal!
           {{else}}
@@ -49,27 +51,17 @@
           {{/ifCond}} --}}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-        
           <h5 class="mb-3">{{name}}</h5>
           <div class="p-4 bg-light rounded shadow-sm">
-            <img src= {{imageUrl}} alt="" class="img-fluid rounded shadow-sm">
+            <img src={{imageUrl}} alt="" class="img-fluid rounded shadow-sm">
             <p class="font-italic mb-0">creator: {{creator.name}}</p>
             <ul class="list-inline small text-muted mt-3 mb-0">
               <li class="list-inline-item"><i class="fa fa-comment-o mr-2"></i>12 Comments</li>
               <li class="list-inline-item"><i class="fa fa-heart-o mr-2"></i>200 Likes</li>
             </ul>
+            <a href="/events/{{_id}}/delete">Delete event</a>
+            <a href="/events/{{_id}}/edit">Edit event</a>
+
           </div>
           {{/each}}
         </div>

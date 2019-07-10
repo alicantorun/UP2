@@ -1,0 +1,31 @@
+<h2>Edit User Info</h2>
+
+<form action="/auth/signup-edit" method="POST" id="form-container">
+
+  <label for="name">Name:</label>
+  <input id="name" type="text" name="name" value="{{user.name}}" placeholder="Name...">
+
+  <label for="lastname">Lastname:</label>
+  <input id="lastname" type="text" name="lastname" value="{{user.lastname}}" placeholder="Lastname...">
+
+  <label for="imageUrl">Image Url:</label>
+  <input id="imageUrl" type="url" name="imageUrl" value="{{user.imageUrl}}" placeholder="Image link...">
+
+  <label for="age">Age:</label>
+  <input id="age" type="text" name="age" value="{{user.age}}" placeholder="Age...">
+
+  <label for="textarea">Bio:</label>
+  <textarea rows="4" cols="50" name="bio" value="{{user.bio}}">
+Tell us about yourself... 
+  </textarea>
+
+
+  {{#if message }}
+  <div class=" error-message">{{ message }}</div>
+  {{/if}}
+
+
+
+  <button type="submit">Edit</button>
+
+</form>

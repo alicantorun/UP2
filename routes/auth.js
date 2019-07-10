@@ -26,6 +26,46 @@ router.get("/signup", (req, res, next) => {
   res.render("auth/signup", { user: req.user });
 });
 
+router.get("/signup-edit", (req, res, next) => {
+  const user = req.user;
+  console.log(user);
+  res.render("auth/signup-edit", { user });
+});
+
+router.post("/signup-edit", (req, res) => {
+  const user = req.user;
+  const {
+    name,
+    lastname,
+    password,
+    age,
+    languages,
+    keyInterests,
+    userType,
+    bio,
+    imageUrl
+  } = req.body;
+
+  User.findByIdAndUpdate(req.user._id, {
+    name,
+    lastname,
+
+    password,
+    age,
+    languages,
+    keyInterests,
+    userType,
+    bio,
+    imageUrl
+  })
+    .then(() => {
+      res.redirect(`/`);
+    })
+    .catch(err => {
+      console.log("Error while updating the book: ", err);
+    });
+});
+
 router.post("/signup", (req, res, next) => {
   console.log(req.body);
   const {
@@ -41,13 +81,19 @@ router.post("/signup", (req, res, next) => {
     imageUrl
   } = req.body;
   if (username === "" || password === "") {
-    res.render("auth/signup", { user: req.user, message: "Indicate username and password" });
+    res.render("auth/signup", {
+      user: req.user,
+      message: "Indicate username and password"
+    });
     return;
   }
 
   User.findOne({ username }, "username", (err, user) => {
     if (user !== null) {
-      res.render("auth/signup", { user: req.user, message: "The username already exists" });
+      res.render("auth/signup", {
+        user: req.user,
+        message: "The username already exists"
+      });
       return;
     }
 
@@ -74,7 +120,10 @@ router.post("/signup", (req, res, next) => {
       })
       .catch(err => {
         console.log(err);
-        res.render("auth/signup", { user: req.user, message: "Something went wrong!" });
+        res.render("auth/signup", {
+          user: req.user,
+          message: "Something went wrong!"
+        });
       });
   });
 });
@@ -85,7 +134,6 @@ router.get("/logout", (req, res) => {
 });
 
 module.exports = router;
-
 
 // passport.use(
 //   new FacebookStrategy(

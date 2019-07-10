@@ -17,4 +17,23 @@ router.get("/profile", loginCheck(), (req, res) => {
     });
 });
 
+router.get(
+  "/profile/delete",
+
+  // checksRole("creator"),
+
+  (req, res, next) => {
+    const userId = req.user._id;
+
+    User.deleteOne({ _id: userId })
+      .then(data => {
+        req.logout();
+        res.redirect("/");
+      })
+      .catch(err => {
+        next(err);
+      });
+  }
+);
+
 module.exports = router;
