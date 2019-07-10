@@ -27,7 +27,7 @@ Tell us about your event...
 -->
 
 
-  <button>Create Event</button>
+  <button id="create-event">Create Event</button>
 
 </form>
 
@@ -60,6 +60,9 @@ Tell us about your event...
     console.log(latitudeData)
 
   }
+
+  document.querySelector("#create-event").addEventListener("click", () => {
+  })
 
   marker.on('dragend', onDragEnd);
 </script>

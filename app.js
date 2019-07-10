@@ -64,6 +64,31 @@ hbs.registerHelper("ifUndefined", (value, options) => {
   }
 });
 
+hbs.registerHelper("ifCond", function(v1, operator, v2, options) {
+  switch (operator) {
+    case "==":
+      return v1 == v2 ? options.fn(this) : options.inverse(this);
+    case "===":
+      return v1 === v2 ? options.fn(this) : options.inverse(this);
+    case "!==":
+      return v1 !== v2 ? options.fn(this) : options.inverse(this);
+    case "<":
+      return v1 < v2 ? options.fn(this) : options.inverse(this);
+    case "<=":
+      return v1 <= v2 ? options.fn(this) : options.inverse(this);
+    case ">":
+      return v1 > v2 ? options.fn(this) : options.inverse(this);
+    case ">=":
+      return v1 >= v2 ? options.fn(this) : options.inverse(this);
+    case "&&":
+      return v1 && v2 ? options.fn(this) : options.inverse(this);
+    case "||":
+      return v1 || v2 ? options.fn(this) : options.inverse(this);
+    default:
+      return options.inverse(this);
+  }
+});
+
 // default value for title local
 app.locals.title = "Express - Generated with IronGenerator";
 
@@ -79,9 +104,6 @@ app.use(
 app.use(flash());
 require("./passport")(app);
 
-const index = require("./routes/index");
-app.use("/", index);
-
 const authRoutes = require("./routes/auth");
 app.use("/auth", authRoutes);
 
@@ -93,5 +115,8 @@ app.use("/profile", profileRoutes);
 
 const protectedRoutes = require("./routes/protected");
 app.use("/protected", protectedRoutes);
+
+const index = require("./routes/index");
+app.use("/", index);
 
 module.exports = app;

@@ -7,7 +7,6 @@
 
 
 
-
 <div class="container-fluid main-wrapper">
   <div id="map" class="row content-wrapper"></div>
 </div>
@@ -26,7 +25,7 @@
 
   events.forEach(event => {
     let popup = new mapboxgl.Popup({ offset: 0, className: 'my-class' })
-      .setHTML(`<div class="popup"><p>${event.name}</p><p>${event.description}</p><img src="${event.imageUrl}" alt=""></div>`)
+      .setHTML(`<div class="popup"><p>${event.name}</p><p>${event.description}</p><img src="${event.imageUrl}" alt=""><a href="events/${event._id}">Go to Event</a></div>`)
       .setMaxWidth("none")
 
     let marker = new mapboxgl.Marker()
@@ -35,3 +34,6 @@
       .addTo(map)
   })
 </script>
+
+
+<a href="http://"></a>
