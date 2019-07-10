@@ -44,10 +44,10 @@ const userSchema = new Schema(
       type: String,
       minlength: 1,
       maxlength: 300
-    }
+    },
+    imageUrl: String
     // facebookId: String
     // country of origin: String,
-    // profileImgUrl: String,
     // feelingValue: {
     //   type: String,
     //   enum: ['happy', 'exited', 'bored', 'angry', 'shocked']

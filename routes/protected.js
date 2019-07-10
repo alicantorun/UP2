@@ -10,11 +10,19 @@ router.get("/profile", loginCheck(), (req, res) => {
   Event.find({
     $or: [{ creator: req.user._id }, { attendees: req.user._id }]
   })
+<<<<<<< HEAD
     .populate("creator")
     .then(events => {
       console.log(events);
       res.render("protected/profile", { userInfo, events, user: req.user });
     });
+=======
+  .populate("creator")
+  .then(events => {
+    console.log(events);
+    res.render("protected/profile", { userInfo, events, user: req.user });
+  });
+>>>>>>> eventdetailAlex
 });
 
 module.exports = router;

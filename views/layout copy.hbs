@@ -14,17 +14,17 @@
   <!-- Bootstrap -->
 
   <!-- Mapbox API -->
-  <div class="img-fluid rounded shadow-sm">
-    <script src='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
+<div class="img-fluid rounded shadow-sm">
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
   </div>
-
+ 
   <!-- Mapbox API -->
 
   <!-- Swiping Effect -->
-  {{!-- <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
   <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script> --}}
+  <script src="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
   <!-- Swiping Effect -->
 
 
@@ -33,10 +33,6 @@
 
 <body>
 
-<<<<<<< HEAD
-  <div class="row nav-wrapper justify-content-around align-items-center">
-
-=======
   <div class="row nav-wrapper justify-content-between align-items-center">
     <div class="p-2"><a href="protected/profile">PROFILE</a></div>
     <div class="p-2"><a href="/">MAP VIEW</a></div>
@@ -47,39 +43,17 @@
      <div class="p-2"><a href="/auth/login">LOGIN</a></div>
      {{/if}}
      </div>
-    <div class="p-2"><a href="/events/createevent">CREATE EVENT</a></div>
     <div class="p-2"><a href="/events">SWIPE</a></div>
 
   </div>
->>>>>>> eventdetailAlex
 
+<div class="bg-white shadow rounded overflow-hidden">
+            <div class="px-4 pt-0 pb-4 bg-light">
+              
+  {{{body}}}
+  <script src="/javascripts/script.js"></script>
+  
   </div>
-
-  <div class="bg-white shadow rounded overflow-hidden">
-    <div class="px-4 pt-0 pb-4 bg-light">
-
-      {{#if user}}
-      <a href="/protected/profile">Profile</a>
-      <a href="/events/createevent">Create An Event</a>
-      <a href="/events">Swipe View</a>
-      <a href="/">Map View</a>
-      <a href="/auth/logout">Logout</a>
-      {{else}}
-      <a href="/events">Swipe View</a>
-      <a href="/">Map View</a>
-      <a href="/auth/login">Login</a>
-      {{/if}}
-
-
-
-
-
-
-
-      {{{body}}}
-      <script src="/javascripts/script.js"></script>
-
-    </div>
   </div>
 </body>
 

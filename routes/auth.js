@@ -9,7 +9,11 @@ const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
 router.get("/login", (req, res, next) => {
+<<<<<<< HEAD
   res.render("auth/login", { user: req.user, message: req.flash("error") });
+=======
+  res.render("auth/login", { user: req.userm, message: req.flash("error") });
+>>>>>>> eventdetailAlex
 });
 
 router.post(
@@ -37,16 +41,17 @@ router.post("/signup", (req, res, next) => {
     languages,
     keyInterests,
     userType,
-    bio
+    bio,
+    imageUrl
   } = req.body;
   if (username === "" || password === "") {
-    res.render("auth/signup", { message: "Indicate username and password" });
+    res.render("auth/signup", { user: req.user, message: "Indicate username and password" });
     return;
   }
 
   User.findOne({ username }, "username", (err, user) => {
     if (user !== null) {
-      res.render("auth/signup", { message: "The username already exists" });
+      res.render("auth/signup", { user: req.user, message: "The username already exists" });
       return;
     }
 
@@ -62,7 +67,8 @@ router.post("/signup", (req, res, next) => {
       languages,
       keyInterests,
       userType,
-      bio
+      bio,
+      imageUrl
     });
 
     newUser
@@ -72,10 +78,18 @@ router.post("/signup", (req, res, next) => {
       })
       .catch(err => {
         console.log(err);
-        res.render("auth/signup", { message: "Something went wrong!" });
+        res.render("auth/signup", { user: req.user, message: "Something went wrong!" });
       });
   });
 });
+
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect("/");
+});
+
+module.exports = router;
+
 
 // passport.use(
 //   new FacebookStrategy(
@@ -122,10 +136,3 @@ router.post("/signup", (req, res, next) => {
 //     failureRedirect: "/login"
 //   })
 // );
-
-router.get("/logout", (req, res) => {
-  req.logout();
-  res.redirect("/");
-});
-
-module.exports = router;
