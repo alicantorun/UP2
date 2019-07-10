@@ -17,18 +17,4 @@ router.get("/", (req, res, next) => {
     });
 });
 
-<<<<<<< HEAD
-=======
-/* GET profile page  get rid of*/
-router.get("/profile", (req, res, next) => {
-  Event.find({})
-    .then(events => {
-      res.render("profile", { user: req.user });
-    })
-    .catch(err => {
-      console.log("Error while getting profile page: ", err);
-    });
-});
-
->>>>>>> eventdetailAlex
 module.exports = router;

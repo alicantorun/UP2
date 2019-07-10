@@ -9,11 +9,7 @@ const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
 router.get("/login", (req, res, next) => {
-<<<<<<< HEAD
   res.render("auth/login", { user: req.user, message: req.flash("error") });
-=======
-  res.render("auth/login", { user: req.userm, message: req.flash("error") });
->>>>>>> eventdetailAlex
 });
 
 router.post(
