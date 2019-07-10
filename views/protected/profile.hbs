@@ -70,3 +70,45 @@
 
   </div>
 </div>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 col-md-12 p-3  bg-white shadow rounded overflow-hidden">
+      <img class="img-thumbnail" src={{userInfo.imageUrl}} alt="">
+      <div class="row">
+        <div class="col-4">KEY INT</div>
+        <div class="col-4">KEY INT</div>
+        <div class="col-4">KEY INT</div>
+        <a href="/auth/signup-edit" class="btn btn-dark btn-sm btn-block">Edit
+          profile</a>
+        <a href="/auth/signup-edit" class="btn btn-dark btn-sm btn-block">Delete
+          profile</a>
+      </div>
+    </div>
+    <div class="col-lg-8 col-md-12 p-3  bg-white shadow rounded overflow-hidden">
+      <h1>{{userInfo.name}}, {{userInfo.age}}</h1>
+      <h2>{{userInfo.city}}</h2>
+      <p>{{userInfo.bio}}</p>
+    </div>
+
+
+  </div>
+
+
+  <diw class="row">
+    {{#each events}}
+    <div class="col-lg-12 col-md-12 p-1 m-1 bg-white shadow rounded overflow-hidden"
+      style="display: block; background-image: url({{imageUrl}})">
+      <h1>{{name}}</h1>
+      <p>{{description}}</p>
+      <a href="/events/{{_id}}/delete">Delete event</a>
+      <a href="/events/{{_id}}/edit">Edit event</a>
+    </div>
+    {{/each}}
+
+
+  </diw>
+</div>
