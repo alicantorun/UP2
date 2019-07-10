@@ -1,6 +1,6 @@
-<div class="swipe-event-card" style="display: block;">
-
-  
+<div class="bg-white shadow rounded overflow-hidden">
+      <div class=" pt-2 pb-4 bg-dark">
+        
   <div class="swipe-event-photo" style="display: block; background-image: url({{event.imageUrl}})">
     <div class="event-card-name text-align">{{event.name}}</div>
     <div class="event-card-description">{{event.description}}</div>
@@ -10,4 +10,5 @@
   <form action="/events/{{event._id}}/join" method="post" rel="external">
   <button type="submit">Join Event</button>
   </form>
+</div>
 </div>

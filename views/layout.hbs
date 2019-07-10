@@ -22,18 +22,21 @@
   <!-- Mapbox API -->
 
   <!-- Swiping Effect -->
-  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
+{{!--   <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
   <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script> --}}
   <!-- Swiping Effect -->
 
 
   <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="variables" href="/stylesheets/_variables.scss"/>
+  
 </head>
 
 <body>
 
-  <div class="row nav-wrapper justify-content-between align-items-center">
+  <div class="navbar navbar-light bg-grey" "justify-content-between align-items-right">
+    <a class="navbar-brand" href="#">
     <div class="p-2"><a href="protected/profile">PROFILE</a></div>
     <div class="p-2"><a href="/">MAP VIEW</a></div>
      <div>
@@ -49,9 +52,9 @@
   </div>
 
 <div class="bg-white shadow rounded overflow-hidden">
-            <div class="px-4 pt-0 pb-4 bg-light">
-              
+            <div class=" pt-0 pb-4 bg-light">
   {{{body}}}
+              
   <script src="/javascripts/script.js"></script>
   
   </div>
