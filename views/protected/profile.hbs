@@ -1,65 +1,82 @@
 <div class="container mt-3">
   <div class="row justify-content-around">
-    <div class="col-lg-4 col-md-12 p-3 bg-white overflow-hidden">
-      <img class="img-thumbnail rounded-circle shadow" src={{userInfo.imageUrl}} width="200" height="200" alt="">
+    <div class="col-lg-4 col-md-12 bg-white d-flex  flex-column shadow overflow-hidden">
+      <div class=" d-flex justify-content-center">
+        <img class="profile-photo p-1 m-5 rounded-circle shadow" src={{userInfo.imageUrl}} alt="">
+      </div>
       <div class="row">
-        <div class="col-4"> My Key Interest is: {{userInfo.keyInt}}</div>
-
-        <a href="/auth/signup-edit" class="btn btn-warning btn-sm btn-block mx-3">Edit
-          profile</a>
+        <div class="mx-3 mx-5">My Key Interest is: {{userInfo.keyInt}}</div>
+        <a href="/auth/signup-edit" class="btn btn-warning btn-sm btn-block mt-3 mx-3 mx-5">Edit Acc.
+        </a>
+        <a href="/profile/delete" class="btn btn-danger btn-sm btn-block mx-3 mb-3 mx-5">Delete Acc.
+        </a>
       </div>
     </div>
     <div class="col-lg-7 col-md-12 bg-white shadow overflow-hidden">
       <div class="mt-5 ml-2">
-      <h2>{{userInfo.name}}, {{userInfo.age}}</h2>
+        <h2>{{userInfo.name}}, {{userInfo.age}}</h2>
+
       </div>
       <div class="mt-2 ml-2">
-      <h6>{{userInfo.city}}</h6>
+        <h6>{{userInfo.city}}</h6>
       </div>
+      <hr>
       <div class="mt-4 ml-2">
-      <p>{{userInfo.bio}}</p>
+        <p>{{userInfo.bio}}</p>
       </div>
     </div>
-
-
   </div>
-
-
-
-
 
 </div>
 
 
 
-<div class="container shadow mt-3">
-  <div id="carouselExampleControls" class="carousel slide" data-keyboard="true" data-touch="true" data-ride="carousel">
-    <div class="carousel-inner">
+<div class="container-fluid ">
+  <div class="container bg-white shadow mt-3">
+    <div id="carouselExampleControls" class="carousel slide" data-keyboard="true" data-touch="true">
+      <div class="carousel-inner">
 
+        {{#each events}}
+        {{#if @first}}
+        <div class="carousel-item active rounded">
+          {{else}}
+          <div class="carousel-item rounded">
+            {{/if}}
+            <div class="row d-flex justify-content-center my-3">
 
-      {{#each events}}
-      {{#if @first}}
-      <div class="carousel-item active rounded">
-        {{else}}
-        <div class="carousel-item rounded">
-          {{/if}}
+              <div class="card text-white">
+                <img class="card-img carousel-card-img" src={{imageUrl}} alt="Card image">
+                <div class="card-img-overlay">
+                  <div class="mt-5 ml-2">
+                    <h3 class="card-title">{{name}}, {{date}}</h3>
+                  </div>
+                  <div class="mt-2 ml-2">
+                    <h6 class="card-text">created by: {{creator.name}}</h6>
+                  </div>
+                  <div class="mt-4 ml-2">
+                    <p class="card-text">{{description}}</p>
+                  </div>
+                  <div class="profile-buttons-div ">
+                    {{#if owner}}
+                    <div class="justify-content-center">
+                      <a href="/events/{{_id}}/edit" class="btn m-1 btn-warning">Edit</a>
+                      <a href="/events/{{_id}}/delete" class="btn m-1 btn-danger">Delete</a>
+                      <a href="/events/{{_id}}/" class="btn m-1 btn-success">Event Detail</a>
+                    </div>
+                    {{/if}}
+                  </div>
+                </div>
+              </div>
 
-
-          <div class="row my-3">
-
-            {{!-- <div class="col-lg-5 ml-4 col-md-12">
-              <img class="events-page-cards" src={{imageUrl}} alt="">
             </div>
+<<<<<<< HEAD
 
             <div class="col-lg-6 col-md-12 d-flex justify-content-center flex-column" class="simple-card-wrapper">
               <h3>{{name}}</h3>
-<<<<<<< HEAD
               <h3>{{creator.name}}</h3>
               <h3>{{mySlogan}}</h3>
               <h5>This event is about: {{keyCat}}</h5>
-=======
               <h6>created by: {{creator.name}}</h6>
->>>>>>> newkeysAlex
               <p>{{description}}</p>
               {{#if owner}}
               <a href="/events/{{_id}}/edit" class="btn btn-warning ">Edit</a>
@@ -84,24 +101,23 @@
 
 
 
+=======
+>>>>>>> d815db37061a401d1cd27bb7974f52f4faa71bef
           </div>
+          {{/each}}
         </div>
-        {{/each}}
-
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
     </div>
+
   </div>
-
-
 
 
   <!--

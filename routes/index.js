@@ -4,7 +4,6 @@ const Event = require("../models/Event");
 const hbs = require("hbs");
 
 //Helper function to parse and display data on index
-hbs.registerHelper("JSON", data => JSON.stringify(data));
 
 /* GET home page */
 router.get("/", (req, res, next) => {

@@ -1,34 +1,65 @@
-<div class="div-sign-in text-center col-md-4 col-sm-10" style="display: block;">
-  <div class="swipe-event-photo" style="display: block; background-image: url({{event.imageUrl}})">
-    <div class="event-card-name text-align">{{event.name}}</div>
-    <div class="event-card-description">{{event.description}}</div>
-    <div class="event-card-id">event id: {{event._id}}</div>
-    <div class="profile-card-user">{{event.creator.userInfo.imgUrl}}</div>
-    <div class="event-card-creator">creator: {{event.creator.username}}</div>
+<div class="container d-flex justify-content-center">
+
+  <div>
+    <div class="swipe-event-photo shadow mt-3" style="display: block; background-image: url({{event.imageUrl}})">
+      <div class="event-detail-box round shadow text-white m-3 p-3 pt-3">
+        <div class="">
+          <h3>{{event.name}}</h3>
+        </div>
+        <div class="">{{event.description}}</div>
+        <div class="">event id: {{event._id}}</div>
+        <div class="">{{event.creator.userInfo.imgUrl}}</div>
+        <div class="">creator: {{event.creator.username}}</div>
+      </div>
+    </div>
+    <div class="d-flex div-sign-in text-center justify-content-center">
+
+      <form action="/events/{{event._id}}/join" method="post" rel="external">
+        <button class="btn m-1 btn-success px-5" type="submit">Join Event</button>
+      </form>
+    </div>
   </div>
-  <form action="/events/{{event._id}}/join" method="post" rel="external">
-    <button type="submit">Join Event</button>
-  </form>
+
 </div>
 
-<div>
-  {{#each event.message}}
-  <h3>{{user.name}}</h3>
-  <p>{{message}}</p>
-  {{/each}}
+<div class="container">
+  <div class="container d-flex flex-column">
+    {{#each event.message}}
+    <div class="chat-box px-5 py-2 m-2 mx-5 mx-5 shadow round">
+      <img class="chat-box-img" src={{user.imageUrl}} alt="">
+      <h3>{{user.name}}</h3>
+      <p>{{message}}</p>
+    </div>
+    {{/each}}
+  </div>
 </div>
 
-<form action="/events/{{event._id}}/message" method="post" rel="external">
-  <textarea name="message" id="" cols="30" rows="10"></textarea>
-  <button type="submit">Send Message</button>
-</form>
+<div class="container">
+  <div class="d-flex div-sign-in text-center justify-content-center">
+
+    <form action="/events/{{event._id}}/message" method="post" rel="external">
+      <textarea name="message" class="form-control" id="" cols="90" rows="10"></textarea><br>
+      <button class="btn m-1 btn-success px-5" type="submit">Send Message</button>
+    </form>
+  </div>
+</div>
+
+<div class="container d-flex justify-content-center">
+  <div id='map' style='width: 500px; height: 500px;'></div>
+</div>
+
+
+
+
+
+
+
 
 
 
 
 
 <!-- MAPBOX UNIT-->
-<div id='map' style='width: 500px; height: 500px;'></div>
 
 <script>
 
