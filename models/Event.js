@@ -25,7 +25,7 @@ const eventSchema = new Schema(
       required: true
     },
     imageUrl: String,
-    date: Date,
+    date: String,
     message: [
       {
         message: String,

@@ -16,6 +16,9 @@
     <label for="password" class="sr-only">Password</label>
     <input id="password" type="password" name="password" class="form-control" placeholder="Your password">
     <label for="textarea" class="sr-only">Bio:</label>
+    <textarea rows="4" cols="50" class="form-control" name="bio">
+Tell us about yourself... 
+  </textarea>
 
     <select name="keyInt" class="custom-select" id="inputGroupSelect04">
       <option selected>What describes you...</option>
@@ -27,14 +30,11 @@
       <option value="family">Family</option>
     </select>
 
-    <textarea rows="4" cols="50" class="form-control" name="bio">
-Tell us about yourself... 
-  </textarea>
     {{#if message }}
     <div class=" error-message">{{ message }}</div>
     {{/if}}
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up </button>
-    <p class="account-message">
+    <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Sign Up </button>
+    <p class="account-message mt-2">
       Do you already have an account?
       <a href="/auth/login">Login</a>
     </p>

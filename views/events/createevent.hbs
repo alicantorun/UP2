@@ -6,6 +6,10 @@
       <input id="name" type="text" name="name" class="form-control" placeholder="Name...">
       <label for="imageUrl" class="sr-only">Image Url:</label>
       <input id="imageUrl" type="url" name="imageUrl" class="form-control" placeholder="Image link...">
+
+      <label for="date" class="sr-only">Event date:</label>
+      <input id="date" type="date" name="date" class="form-control" placeholder="Event Date...">
+
       <label for="textarea" class="sr-only">Description:</label>
       <textarea rows="4" cols="50" class="form-control" name="description">
 What is your event about...? 
@@ -38,9 +42,14 @@ What is your event about...?
 
 
 <script>
+
+
+
   mapboxgl.accessToken = 'pk.eyJ1IjoibW9lYmltYXAiLCJhIjoiY2p4dnVuYnFnMDM3YzNocXA2ZWxmNWVmYyJ9.msRoY578HfxGqb0JzGBbhA';
   var latitude = document.getElementById('latitude');
   var longtitude = document.getElementById('longtitude');
+  latitude.style.display = 'none';
+  longtitude.style.display = 'none';
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/moebimap/cjxxqdfc405g61cnywoyv329r',
@@ -54,10 +63,12 @@ What is your event about...?
     .addTo(map);
   function onDragEnd() {
     var lngLat = marker.getLngLat();
-    latitude.style.display = 'block';
     latitude.value = lngLat.lng
-    longtitude.style.display = 'block';
+    latitude.style.display = 'none';
+    latitude.value = lngLat.lng
     longtitude.value = lngLat.lat;
+    longtitude.style.display = 'none';
+
     const latitudeData = lngLat.lat;
     const longtitudeData = lngLat.lng;
     console.log(latitudeData)
