@@ -69,7 +69,14 @@ router.post("/signup-edit", (req, res) => {
 
 router.post("/signup", (req, res, next) => {
   console.log(req.body);
+  let int = [];
   const {
+    sport,
+    party,
+    casual,
+    culture,
+    nature,
+    family,
     name,
     lastname,
     username,
@@ -82,6 +89,25 @@ router.post("/signup", (req, res, next) => {
     bio,
     imageUrl
   } = req.body;
+  if (!!sport) {
+    int.push("sport");
+  }
+  if (!!party) {
+    int.push("party");
+  }
+  if (!!casual) {
+    int.push("casual");
+  }
+  if (!!culture) {
+    int.push("culture");
+  }
+  if (!!nature) {
+    int.push("nature");
+  }
+  if (!!family) {
+    int.push("family");
+  }
+
   if (username === "" || password === "") {
     res.render("auth/signup", {
       user: req.user,
@@ -109,7 +135,7 @@ router.post("/signup", (req, res, next) => {
       lastname,
       age,
       languages,
-      keyInt,
+      keyInt: int,
       city,
       userType,
       bio,
@@ -119,7 +145,7 @@ router.post("/signup", (req, res, next) => {
     newUser
       .save()
       .then(() => {
-        res.redirect("/auth/login");
+        req.logIn(newUser, () => res.redirect("/"));
       })
       .catch(err => {
         console.log(err);

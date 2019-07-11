@@ -3,8 +3,10 @@
     <div class="col-lg-4 col-md-12 p-3 bg-white overflow-hidden">
       <img class="img-thumbnail rounded-circle shadow" src={{userInfo.imageUrl}} width="200" height="200" alt="">
       <div class="row">
-        <div class="col-4"> My Key Interest is: {{userInfo.keyInt}}</div>
-
+        {{#each userInfo.keyInt }}
+        <img src="/images/{{this}}.png" alt="" style="width:35px; height:35px; margin:20px; border-radius:50%; box-shadow:0 0 5px black">
+       
+          {{/each}}
         <a href="/auth/signup-edit" class="btn btn-warning btn-sm btn-block mx-3">Edit
           profile</a>
       </div>
@@ -64,7 +66,7 @@
               </a>
               {{/if}}
             </div> --}}
-            <div class="card bg-dark text-white">
+            <div class="card bg-dark text-white align-center">
   <img class="card-img" src={{imageUrl}} alt="Card image">
   <div class="card-img-overlay">
     <div class="mt-5 ml-2">

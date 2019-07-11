@@ -33,7 +33,7 @@ const userSchema = new Schema(
       type: [String]
     },
     keyInt: {
-      type: String
+      type: [String]
     },
     userType: {
       type: String,
