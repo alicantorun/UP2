@@ -24,7 +24,10 @@ router.get("/createevent", loginCheck(), (req, res, next) => {
 });
 
 router.post("/createevent", (req, res, next) => {
+<<<<<<< HEAD
   console.log(req.body);
+=======
+>>>>>>> newkeysAlex
   const {
     name,
     description,
