@@ -40,7 +40,8 @@ router.post("/signup-edit", (req, res) => {
     password,
     age,
     languages,
-    keyInterests,
+    keyInt,
+    city,
     userType,
     bio,
     imageUrl
@@ -53,7 +54,8 @@ router.post("/signup-edit", (req, res) => {
     password,
     age,
     languages,
-    keyInterests,
+    keyInt,
+    city,
     userType,
     bio,
     imageUrl
@@ -75,7 +77,8 @@ router.post("/signup", (req, res, next) => {
     password,
     age,
     languages,
-    keyInterests,
+    keyInt,
+    city,
     userType,
     bio,
     imageUrl
@@ -107,7 +110,8 @@ router.post("/signup", (req, res, next) => {
       lastname,
       age,
       languages,
-      keyInterests,
+      keyInt,
+      city,
       userType,
       bio,
       imageUrl

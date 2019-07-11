@@ -32,9 +32,10 @@ const userSchema = new Schema(
     languages: {
       type: [String]
     },
-    keyInterests: {
-      type: [String]
-    },
+    keyInt: [{
+      type: String,
+      enum: ["sports", "culture", "casual", "nightlife", "nature", "family"]
+    }],
     userType: {
       type: String,
       enum: ["Admin", "User"],
@@ -45,7 +46,8 @@ const userSchema = new Schema(
       minlength: 1,
       maxlength: 300
     },
-    imageUrl: String
+    imageUrl: String,
+    city: String
     // facebookId: String
     // country of origin: String,
     // feelingValue: {

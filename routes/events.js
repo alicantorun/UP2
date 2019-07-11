@@ -24,11 +24,13 @@ router.get("/createevent", loginCheck(), (req, res, next) => {
 });
 
 router.post("/createevent", (req, res, next) => {
-  const { name, description, imageUrl, latitude, longtitude } = req.body;
+  const { name, description, date, keyCat, imageUrl, latitude, longtitude } = req.body;
   Event.create({
     name,
     imageUrl,
     description,
+    keyCat,
+    date,
     creator: req.user._id,
     location: {
       type: "Point",
@@ -76,12 +78,14 @@ router.get("/:eventId/edit", (req, res, next) => {
 });
 
 router.post("/:eventId/edit", (req, res) => {
-  const { name, imageUrl, description } = req.body;
+  const { name, imageUrl, description, date, keyCat } = req.body;
 
   Event.findByIdAndUpdate(req.params.eventId, {
     name,
     imageUrl,
-    description
+    description,
+    date,
+    keyCat,
   })
     .then(() => {
       res.redirect(`/events/${req.params.eventId}`);
