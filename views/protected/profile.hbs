@@ -1,21 +1,25 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-4 col-md-12 p-3 bg-white shadow rounded overflow-hidden">
-      <img class="img-thumbnail" src={{userInfo.imageUrl}} alt="">
+<div class="container mt-3">
+  <div class="row justify-content-around">
+    <div class="col-lg-4 col-md-12 p-3 bg-white overflow-hidden">
+      <img class="img-thumbnail rounded-circle shadow" src={{userInfo.imageUrl}} width="200" height="200" alt="">
       <div class="row">
         <div class="col-4">KEY INT</div>
         <div class="col-4">KEY INT</div>
         <div class="col-4">KEY INT</div>
         <a href="/auth/signup-edit" class="btn btn-warning btn-sm btn-block mx-3">Edit
           profile</a>
-        <a href="/auth/signup-edit" class="btn btn-danger btn-sm btn-block mx-3">Delete
-          profile</a>
       </div>
     </div>
-    <div class="col-lg-8 col-md-12  bg-white shadow rounded overflow-hidden">
-      <h1>{{userInfo.name}}, {{userInfo.age}}</h1>
-      <h2>{{userInfo.city}}</h2>
+    <div class="col-lg-7 col-md-12 bg-white shadow overflow-hidden">
+      <div class="mt-5 ml-2">
+      <h2>{{userInfo.name}}, {{userInfo.age}}</h2>
+      </div>
+      <div class="mt-2 ml-2">
+      <h6>{{userInfo.city}}</h6>
+      </div>
+      <div class="mt-4 ml-2">
       <p>{{userInfo.bio}}</p>
+      </div>
     </div>
 
 
@@ -29,7 +33,7 @@
 
 
 
-<div class="container">
+<div class="container shadow mt-3">
   <div id="carouselExampleControls" class="carousel slide" data-keyboard="true" data-touch="true" data-ride="carousel">
     <div class="carousel-inner">
 
@@ -42,23 +46,36 @@
           {{/if}}
 
 
-          <div class="row bg-white my-3 shadow rounded">
+          <div class="row my-3">
 
-            <div class="col-lg-4 col-md-12">
-              <img class="events-page-cards rounded shadow" src={{imageUrl}} alt="">
+            {{!-- <div class="col-lg-5 ml-4 col-md-12">
+              <img class="events-page-cards" src={{imageUrl}} alt="">
             </div>
 
-            <div class="col-lg-8 col-md-12 d-flex justify-content-center flex-column" class="simple-card-wrapper">
+            <div class="col-lg-6 col-md-12 d-flex justify-content-center flex-column" class="simple-card-wrapper">
               <h3>{{name}}</h3>
-              <h3>{{creator.name}}</h3>
-              <h3>{{mySlogan}}</h3>
+              <h6>created by: {{creator.name}}</h6>
               <p>{{description}}</p>
               {{#if owner}}
               <a href="/events/{{_id}}/edit" class="btn btn-warning ">Edit</a>
               <a href="/events/{{_id}}/delete" class="btn d-block btn-danger">Delete
               </a>
               {{/if}}
-            </div>
+            </div> --}}
+            <div class="card bg-dark text-white">
+  <img class="card-img" src={{imageUrl}} alt="Card image">
+  <div class="card-img-overlay">
+    <div class="mt-5 ml-2">
+    <h3 class="card-title">{{name}}, {{date}}</h3>
+    </div>
+    <div class="mt-2 ml-2">
+    <h6 class="card-text">created by: {{creator.name}}</h6>
+    </div>
+    <div class="mt-4 ml-2">
+    <p class="card-text">{{description}}</p>
+    </div>
+  </div>
+</div>
 
 
 

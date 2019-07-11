@@ -24,7 +24,15 @@ router.get("/createevent", loginCheck(), (req, res, next) => {
 });
 
 router.post("/createevent", (req, res, next) => {
-  const { name, description, date, keyCat, imageUrl, latitude, longtitude } = req.body;
+  const {
+    name,
+    description,
+    date,
+    keyCat,
+    imageUrl,
+    latitude,
+    longtitude
+  } = req.body;
   Event.create({
     name,
     imageUrl,
@@ -85,7 +93,7 @@ router.post("/:eventId/edit", (req, res) => {
     imageUrl,
     description,
     date,
-    keyCat,
+    keyCat
   })
     .then(() => {
       res.redirect(`/events/${req.params.eventId}`);

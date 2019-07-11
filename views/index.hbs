@@ -27,7 +27,7 @@
 
   events.forEach(event => {
     let popup = new mapboxgl.Popup({ offset: 0, className: 'my-class' })
-      .setHTML(`<div class="popup"><p>${event.name}</p><p>${event.description}</p><img src="${event.imageUrl}" alt=""><a href="events/${event._id}"">see details</a></div>`)
+      .setHTML(`<div class="popup"><p>${event.name}</p><p>${event.date}</p><p>${event.keyCat}</p><p>${event.description}</p><img src="${event.imageUrl}" alt=""><a href="events/${event._id}"">see details</a></div>`)
       .setMaxWidth("none")
       
 
