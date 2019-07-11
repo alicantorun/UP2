@@ -11,7 +11,9 @@ const Event = require("../models/Event");
 const bcryptSalt = 10;
 
 mongoose
-  .connect("mongodb://localhost/up2", { useNewUrlParser: true })
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/up2", {
+    useNewUrlParser: true
+  })
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
