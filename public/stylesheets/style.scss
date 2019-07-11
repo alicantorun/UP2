@@ -145,6 +145,40 @@ $padding-x-for-navbar-brand-or-logo-in-px: 16px;
   height: 300px;
 }
 
+.profile-thumbnail {
+  object-fit: cover;
+  width: 250px;
+  height: 250px;
+}
+
+.profile-photo {
+  object-fit: cover;
+  width: 250px;
+  height: 250px;
+}
+
+.carousel-card {
+  margin: 20px auto;
+}
+
+.carousel-card-img {
+  object-fit: cover;
+  width: 1400px;
+  height: 450px;
+}
+
+.carousel-inner {
+  overflow: hidden;
+}
+
+.profile-buttons-div {
+  margin-top: 150px;
+}
+
+.event-detail-box {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
 // STYLES FOR INPUT FORMS
 
 .div-sign-in {

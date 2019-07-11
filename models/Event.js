@@ -24,7 +24,11 @@ const eventSchema = new Schema(
       type: String,
       required: true
     },
-    imageUrl: String,
+    imageUrl: {
+      type: String,
+      default:
+        "https://images.unsplash.com/photo-1509803874385-db7c23652552?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+    },
     date: String,
     message: [
       {
