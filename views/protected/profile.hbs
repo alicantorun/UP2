@@ -5,11 +5,11 @@
         <img class="profile-photo p-1 m-5 rounded-circle shadow" src={{userInfo.imageUrl}} alt="">
       </div>
       <div class="row">
-        <div class="mx-3 mx-5">My Key Interest is: {{userInfo.keyInt}}</div>
-        <a href="/auth/signup-edit" class="btn btn-warning btn-sm btn-block mt-3 mx-3 mx-5">Edit Acc.
-        </a>
-        <a href="/profile/delete" class="btn btn-danger btn-sm btn-block mx-3 mb-3 mx-5">Delete Acc.
-        </a>
+        {{#each userInfo.keyInt }}
+        <img src="/images/{{this}}.png" alt="" style="width:35px; height:35px; margin:20px; border-radius:50%; box-shadow:0 0 5px black">
+          {{/each}}
+        <a href="/auth/signup-edit" class="btn btn-warning btn-sm btn-block mx-3">Edit
+          profile</a>
       </div>
     </div>
     <div class="col-lg-7 col-md-12 bg-white shadow overflow-hidden">
@@ -69,7 +69,6 @@
               </div>
 
             </div>
-<<<<<<< HEAD
 
             <div class="col-lg-6 col-md-12 d-flex justify-content-center flex-column" class="simple-card-wrapper">
               <h3>{{name}}</h3>
@@ -83,8 +82,8 @@
               <a href="/events/{{_id}}/delete" class="btn d-block btn-danger">Delete
               </a>
               {{/if}}
-            </div> --}}
-            <div class="card bg-dark text-white">
+            </div>
+            <div class="card bg-dark text-white align-center">
   <img class="card-img" src={{imageUrl}} alt="Card image">
   <div class="card-img-overlay">
     <div class="mt-5 ml-2">
@@ -101,8 +100,6 @@
 
 
 
-=======
->>>>>>> d815db37061a401d1cd27bb7974f52f4faa71bef
           </div>
           {{/each}}
         </div>
