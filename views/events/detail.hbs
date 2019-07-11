@@ -12,34 +12,42 @@
         <div class="">creator: {{event.creator.username}}</div>
       </div>
     </div>
-    <form action="/events/{{event._id}}/join" method="post" rel="external">
-      <button type="submit">Join Event</button>
-    </form>
+    <div class="d-flex div-sign-in text-center justify-content-center">
+
+      <form action="/events/{{event._id}}/join" method="post" rel="external">
+        <button class="btn m-1 btn-success px-5" type="submit">Join Event</button>
+      </form>
+    </div>
   </div>
 
 </div>
 
-
-<div class="container d-flex flex-column justify-content-center align-items-center">
-
-
-
-
-  <div>
+<div class="container">
+  <div class="container d-flex flex-column">
     {{#each event.message}}
-    <h3>{{user.name}}</h3>
-    <p>{{message}}</p>
+    <div class="chat-box px-5 py-2 m-2 mx-5 mx-5 shadow round">
+      <img class="chat-box-img" src={{user.imageUrl}} alt="">
+      <h3>{{user.name}}</h3>
+      <p>{{message}}</p>
+    </div>
     {{/each}}
   </div>
-
-  <form action="/events/{{event._id}}/message" method="post" rel="external">
-    <textarea name="message" id="" cols="30" rows="10"></textarea><br>
-    <button type="submit">Send Message</button>
-  </form>
-
-  <div id='map' style='width: 500px; height: 500px;'></div>
-
 </div>
+
+<div class="container">
+  <div class="d-flex div-sign-in text-center justify-content-center">
+
+    <form action="/events/{{event._id}}/message" method="post" rel="external">
+      <textarea name="message" class="form-control" id="" cols="90" rows="10"></textarea><br>
+      <button class="btn m-1 btn-success px-5" type="submit">Send Message</button>
+    </form>
+  </div>
+</div>
+
+<div class="container d-flex justify-content-center">
+  <div id='map' style='width: 500px; height: 500px;'></div>
+</div>
+
 
 
 
