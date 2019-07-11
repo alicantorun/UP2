@@ -103,6 +103,11 @@ a {
 .navbar a {
   color: white !important; }
 
+.events-page-cards {
+  object-fit: cover;
+  width: 300px;
+  height: 300px; }
+
 .div-sign-in {
   display: -ms-flexbox;
   display: -webkit-box;

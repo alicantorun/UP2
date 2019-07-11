@@ -1,41 +1,28 @@
 <div class="row">
   <div class="div-sign-in text-center col-md-4 col-sm-10">
     <form action="/events/{{event._id}}/edit" method="POST" class="form-signin">
-
       <h1 class="h3 mb-3 font-weight-normal">Edit Your Event</h1>
-
       <label for="name" class="sr-only">Name:</label>
       <input id="name" type="text" name="name" value="{{event.name}}" class="form-control" placeholder="Name...">
-
       <label for="imageUrl" class="sr-only">Image Url:</label>
       <input id="imageUrl" type="url" name="imageUrl" class="form-control" value="{{event.imageUrl}}"
         placeholder="Image link...">
-
       <label for="textarea" class="sr-only">Description:</label>
       <textarea rows="4" cols="50" class="form-control" value="{{event.description}}" name="description">
 What is your event about...? 
   </textarea>
-
       <label for="name" class="sr-only">Coordinates:</label>
       <input id="latitude" type="text" name="latitude" class="form-control" placeholder="">
       <input id="longtitude" type="text" name="longtitude" class="form-control" placeholder="">
-
-      {{#if message }} <div class=" error-message">{{ message }}
-      </div>
+      {{#if message }}
+      <div class=" error-message">{{ message }}</div>
       {{/if}}
-
-
-
       <button class="btn btn-lg btn-primary btn-block" type="submit">Edit Event</button>
-
     </form>
   </div>
 
+  <!-- MAPBOX UNIT-->
   <div class="col-md-8 col-sm-10" id='map' style='width: 200px; height: 500px;'></div>
-
-</div>
-
-
 </div>
 
 
