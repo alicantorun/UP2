@@ -14,7 +14,7 @@ const MongoStore = require("connect-mongo")(session);
 const flash = require("connect-flash");
 
 mongoose
-  .connect(process.env.MONGOLAB_URI || "mongodb://localhost/up2", {
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/up2", {
     useNewUrlParser: true
   })
   .then(x => {
@@ -52,7 +52,11 @@ app.use(
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 app.use(express.static(path.join(__dirname, "public")));
-app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
+app.use(
+  favicon(path.join(__dirname, "public", "images", "UP2_mini_favicon.png"))
+);
+
+hbs.registerPartials(__dirname + "/views/partials");
 
 hbs.registerHelper("ifUndefined", (value, options) => {
   if (arguments.length < 2)
@@ -63,6 +67,33 @@ hbs.registerHelper("ifUndefined", (value, options) => {
     return options.fn(this);
   }
 });
+
+hbs.registerHelper("ifCond", function(v1, operator, v2, options) {
+  switch (operator) {
+    case "==":
+      return v1 == v2 ? options.fn(this) : options.inverse(this);
+    case "===":
+      return v1 === v2 ? options.fn(this) : options.inverse(this);
+    case "!==":
+      return v1 !== v2 ? options.fn(this) : options.inverse(this);
+    case "<":
+      return v1 < v2 ? options.fn(this) : options.inverse(this);
+    case "<=":
+      return v1 <= v2 ? options.fn(this) : options.inverse(this);
+    case ">":
+      return v1 > v2 ? options.fn(this) : options.inverse(this);
+    case ">=":
+      return v1 >= v2 ? options.fn(this) : options.inverse(this);
+    case "&&":
+      return v1 && v2 ? options.fn(this) : options.inverse(this);
+    case "||":
+      return v1 || v2 ? options.fn(this) : options.inverse(this);
+    default:
+      return options.inverse(this);
+  }
+});
+
+hbs.registerHelper("JSON", data => JSON.stringify(data));
 
 // default value for title local
 app.locals.title = "Express - Generated with IronGenerator";
@@ -79,10 +110,19 @@ app.use(
 app.use(flash());
 require("./passport")(app);
 
-const index = require("./routes/index");
-app.use("/", index);
-
 const authRoutes = require("./routes/auth");
 app.use("/auth", authRoutes);
+
+const eventRoutes = require("./routes/events");
+app.use("/events", eventRoutes);
+
+const profileRoutes = require("./routes/profile");
+app.use("/profile", profileRoutes);
+
+const protectedRoutes = require("./routes/protected");
+app.use("/protected", protectedRoutes);
+
+const index = require("./routes/index");
+app.use("/", index);
 
 module.exports = app;

@@ -1,0 +1,200 @@
+<div class="container mt-3">
+  <div class="row justify-content-around">
+    <div class="col-lg-4 col-md-12 bg-white d-flex  flex-column shadow overflow-hidden">
+      <div class=" d-flex justify-content-center">
+        <img class="profile-photo p-1 m-5 rounded-circle shadow" src={{userInfo.imageUrl}} alt="">
+      </div>
+      <div class="row">
+        {{#each userInfo.keyInt }}
+        <img src="/images/{{this}}.png" alt="" style="width:35px; height:35px; margin:20px; border-radius:50%; box-shadow:0 0 5px black">
+          {{/each}}
+        <a href="/auth/signup-edit" class="btn btn-warning btn-sm btn-block mx-3">Edit
+          profile</a>
+      </div>
+    </div>
+    <div class="col-lg-7 col-md-12 bg-white shadow overflow-hidden">
+      <div class="mt-5 ml-2">
+        <h2>{{userInfo.name}}, {{userInfo.age}}</h2>
+
+      </div>
+      <div class="mt-2 ml-2">
+        <h6>{{userInfo.city}}</h6>
+      </div>
+      <hr>
+      <div class="mt-4 ml-2">
+        <p>{{userInfo.bio}}</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<div class="container-fluid ">
+  <div class="container bg-white shadow mt-3">
+    <div id="carouselExampleControls" class="carousel slide" data-keyboard="true" data-touch="true">
+      <div class="carousel-inner">
+
+        {{#each events}}
+        {{#if @first}}
+        <div class="carousel-item active rounded">
+          {{else}}
+          <div class="carousel-item rounded">
+            {{/if}}
+            <div class="row d-flex justify-content-center my-3">
+
+              <div class="card text-white">
+                <img class="card-img carousel-card-img" src={{imageUrl}} alt="Card image">
+                <div class="card-img-overlay">
+                  <div class="mt-5 ml-2">
+                    <h3 class="card-title">{{name}}, {{date}}</h3>
+                  </div>
+                  <div class="mt-2 ml-2">
+                    <h6 class="card-text">created by: {{creator.name}}</h6>
+                  </div>
+                  <div class="mt-4 ml-2">
+                    <p class="card-text">{{description}}</p>
+                  </div>
+                  <div class="profile-buttons-div ">
+                    {{#if owner}}
+                    <div class="justify-content-center">
+                      <a href="/events/{{_id}}/edit" class="btn m-1 btn-warning">Edit</a>
+                      <a href="/events/{{_id}}/delete" class="btn m-1 btn-danger">Delete</a>
+                      <a href="/events/{{_id}}/" class="btn m-1 btn-success">Event Detail</a>
+                    </div>
+                    {{/if}}
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-lg-6 col-md-12 d-flex justify-content-center flex-column" class="simple-card-wrapper">
+              <h3>{{name}}</h3>
+              <h3>{{creator.name}}</h3>
+              <h3>{{mySlogan}}</h3>
+              <h5>This event is about: {{keyCat}}</h5>
+              <h6>created by: {{creator.name}}</h6>
+              <p>{{description}}</p>
+              {{#if owner}}
+              <a href="/events/{{_id}}/edit" class="btn btn-warning ">Edit</a>
+              <a href="/events/{{_id}}/delete" class="btn d-block btn-danger">Delete
+              </a>
+              {{/if}}
+            </div>
+            <div class="card bg-dark text-white align-center">
+  <img class="card-img" src={{imageUrl}} alt="Card image">
+  <div class="card-img-overlay">
+    <div class="mt-5 ml-2">
+    <h3 class="card-title">{{name}}, {{date}}</h3>
+    </div>
+    <div class="mt-2 ml-2">
+    <h6 class="card-text">created by: {{creator.name}}</h6>
+    </div>
+    <div class="mt-4 ml-2">
+    <p class="card-text">{{description}}</p>
+    </div>
+  </div>
+</div>
+
+
+
+          </div>
+          {{/each}}
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!--
+
+
+<div class="row py-5 px-4">
+  <div class="col-xl-4 col-md-6 col-sm-10 mx-auto">
+
+    <div class="bg-white shadow rounded overflow-hidden">
+      <div class="px-4 pt-0 pb-4 bg-dark">
+        <div class="media align-items-end profile-header">
+          <div class="profile mr-3"><img src={{userInfo.imageUrl}} alt="..." width="130"
+              class="rounded mb-2 img-thumbnail"><a href="/auth/signup-edit" class="btn btn-dark btn-sm btn-block">Edit
+              profile</a>
+            <a href="/auth/signup-edit" class="btn btn-dark btn-sm btn-block">Delete
+              profile</a>
+          </div>
+          <div class="media-body mb-5 text-white">
+            <h4 class="mt-0 mb-0">{{userInfo.name}}, {{userInfo.age}}</h4>
+            <h6 class="mt-0 mb-0">{{userInfo.keyInt}}</h6>
+            <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i>{{userInfo.city}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-light p-4 d-flex justify-content-end text-center">
+        <ul class="list-inline mb-0">
+          <li class="list-inline-item">
+            <h5 class="font-weight-bold mb-0 d-block">31</h5><small class="text-muted"> <i
+                class="fa fa-picture-o mr-1"></i>Events</small>
+          </li>
+          <li class="list-inline-item">
+            <h5 class="font-weight-bold mb-0 d-block">3K</h5><small class="text-muted"> <i
+                class="fa fa-user-circle-o mr-1"></i>Followers</small>
+          </li>
+        </ul>
+      </div>
+
+      <div class="py-4 px-4">
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <h5 class="mb-0">Recent events</h5><a href="#" class="btn btn-link text-muted">Show all</a>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 mb-2 pr-lg-1"><img url=({{imageUrl}}) alt="" class="img-fluid rounded shadow-sm"></div>
+
+        </div>
+        <div class="py-4">
+
+          {{#each events}}
+
+
+          {{!-- {{#ifCond userInfo._id "===" creator._id}}
+          Values are equal!
+          {{else}}
+          Values are different!
+          {{/ifCond}} --}}
+
+
+          <h5 class="mb-3">{{name}}</h5>
+          <div class="p-4 bg-light rounded shadow-sm">
+            <img src={{imageUrl}} alt="" class="img-fluid rounded shadow-sm">
+            <p class="font-italic mb-0">creator: {{creator.name}}</p>
+            <ul class="list-inline small text-muted mt-3 mb-0">
+              <li class="list-inline-item"><i class="fa fa-comment-o mr-2"></i>12 Comments</li>
+              <li class="list-inline-item"><i class="fa fa-heart-o mr-2"></i>200 Likes</li>
+            </ul>
+            <a href="/events/{{_id}}/delete">Delete event</a>
+            <a href="/events/{{_id}}/edit">Edit event</a>
+
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+-->

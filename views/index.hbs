@@ -1,2 +1,84 @@
+<!-- TITLE AND WELCOME MSSG RENDER
+
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+-->
+
+
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.css' rel='stylesheet' />
+
+
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.min.js'></script>
+<link rel='stylesheet'
+  href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.css' type='text/css' />
+<style>
+  .geocoder {
+    position: absolute;
+    z-index: 1;
+    width: 30%;
+    left: 60%;
+    margin-left: -25%;
+    top: 10px;
+  }
+
+  .mapboxgl-ctrl-geocoder {
+    min-width: 100%;
+  }
+</style>
+
+
+<div class="container-fluid main-wrapper">
+  <div id="map" class="row content-wrapper">
+    <div id='geocoder' class='geocoder'></div>
+
+  </div>
+
+
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoibW9lYmltYXAiLCJhIjoiY2p4dnVuYnFnMDM3YzNocXA2ZWxmNWVmYyJ9.msRoY578HfxGqb0JzGBbhA';
+    var map = new mapboxgl.Map({
+      container: 'map',
+      center: [13.373217, 52.506463
+      ], // starting position [lng, lat]
+      zoom: 12,
+      style: 'mapbox://styles/moebimap/cjxxqdfc405g61cnywoyv329r'
+  });
+
+    const events = {{{ JSON events }}}
+
+
+    events.forEach(event => {
+      let popup = new mapboxgl.Popup({ offset: 0, className: 'my-class' })
+        .setHTML(`<div class="popup"><p>${event.name}</p><p>${event.date}</p><p>${event.keyCat}</p><p>${event.description}</p><img src="${event.imageUrl}" alt="" style='width:150px;'><a href="events/${event._id}"">see details</a></div>`)
+        .setMaxWidth("none")
+  
+      var el = document.createElement('div');
+        el.className = 'marker';
+        el.style.backgroundImage = `url(/images/${event.keyCat}.png)`;
+        el.style.backgroundSize = "cover"
+        el.style.backgroundPosition = "center"
+        el.style.boxShadow = '0 5px 5px black';
+        el.style.borderRadius = '50%'
+        el.style.width = '40px';
+        el.style.height = '40px';
+      let marker = new mapboxgl.Marker(el)
+        .setLngLat(event.location.coordinates)
+        .setPopup(popup)
+        .addTo(map)
+    })
+
+    var geocoder = new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl,
+      language: 'en'
+    });
+
+ 
+      
+
+    document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+  </script>
+
+
+  <a href="http://"></a>

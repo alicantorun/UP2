@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="div-sign-in text-center col-md-4 col-sm-10">
+    <form action="/events/createevent" method="POST" class="form-signin">
+      <h1 class="h3 mb-3 font-weight-normal">Create Your Event</h1>
+      <label for="name" class="sr-only">Name:</label>
+      <input id="name" type="text" name="name" class="form-control" placeholder="Name...">
+      <label for="imageUrl" class="sr-only">Image Url:</label>
+      <input id="imageUrl" type="url" name="imageUrl" class="form-control" placeholder="Image link...">
+
+      <label for="date" class="sr-only">Event date:</label>
+      <input id="date" type="date" name="date" class="form-control" placeholder="Event Date...">
+
+      <label for="textarea" class="sr-only">Description:</label>
+      <textarea rows="4" cols="50" class="form-control" name="description">
+What is your event about...? 
+  </textarea>
+      <select name="keyCat" class="custom-select" id="inputGroupSelect03">
+        <option selected>Pick Category...</option>
+        <option value="sport">Sport</option>
+        <option value="party">Party</option>
+        <option value="casual">Casual</option>
+        <option value="culture">Culture</option>
+        <option value="nature">Nature</option>
+        <option value="family">Family</option>
+      </select>
+      <label for="name" class="sr-only">Coordinates:</label>
+      <input id="latitude" type="text" name="latitude" class="form-control" placeholder="">
+      <input id="longtitude" type="text" name="longtitude" class="form-control" placeholder="">
+      {{#if message }}
+      <div class=" error-message">{{ message }}</div>
+      {{/if}}
+      <button class="btn btn-lg btn-primary btn-block" btn-color=#59656F type="submit">Create Event</button>
+    </form>
+  </div>
+
+
+
+  <!-- MAPBOX UNIT-->
+  <div class="col-md-8 col-sm-10 " id='map' style='width: 200px; height: 500px;'></div>
+</div>
+
+
+
+<script>
+
+
+
+  mapboxgl.accessToken = 'pk.eyJ1IjoibW9lYmltYXAiLCJhIjoiY2p4dnVuYnFnMDM3YzNocXA2ZWxmNWVmYyJ9.msRoY578HfxGqb0JzGBbhA';
+  var latitude = document.getElementById('latitude');
+  var longtitude = document.getElementById('longtitude');
+  latitude.style.display = 'none';
+  longtitude.style.display = 'none';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/moebimap/cjxxqdfc405g61cnywoyv329r',
+    center: [13.373217, 52.506463],
+    zoom: 12
+  });
+  var marker = new mapboxgl.Marker({
+    draggable: true
+  })
+    .setLngLat([13.373217, 52.506463])
+    .addTo(map);
+  function onDragEnd() {
+    var lngLat = marker.getLngLat();
+    latitude.value = lngLat.lng
+    latitude.style.display = 'none';
+    latitude.value = lngLat.lng
+    longtitude.value = lngLat.lat;
+    longtitude.style.display = 'none';
+
+    const latitudeData = lngLat.lat;
+    const longtitudeData = lngLat.lng;
+    console.log(latitudeData)
+  }
+  marker.on('dragend', onDragEnd);
+</script>
