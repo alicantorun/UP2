@@ -44,7 +44,7 @@ const userSchema = new Schema(
     bio: {
       type: String,
       minlength: 1,
-      maxlength: 300
+      maxlength: 500
     },
     imageUrl: String,
     city: String

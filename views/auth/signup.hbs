@@ -1,44 +1,29 @@
 <div class=" div-sign-in text-center">
   <form action="/auth/signup" method="POST" class="form-signin">
-
     <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
-
     <label for="name" class="sr-only">Name:</label>
     <input id="name" type="text" name="name" class="form-control" placeholder="Name...">
-
     <label for="lastname" class="sr-only">Lastname:</label>
     <input id="lastname" type="text" name="lastname" class="form-control" placeholder="Lastname...">
-
     <label for="imageUrl" class="sr-only">Image Url:</label>
     <input id="imageUrl" type="url" name="imageUrl" class="form-control" placeholder="Image link...">
-
     <label for="age" class="sr-only">Age:</label>
     <input id="age" type="text" name="age" class="form-control" placeholder="Age...">
-
     <label for="username" class="sr-only">Email</label>
     <input id="username" type="text" name="username" class="form-control" placeholder="Email...">
-
     <label for="password" class="sr-only">Password</label>
     <input id="password" type="password" name="password" class="form-control" placeholder="Your password">
-
     <label for="textarea" class="sr-only">Bio:</label>
     <textarea rows="4" cols="50" class="form-control" name="bio">
 Tell us about yourself... 
   </textarea>
-
-
     {{#if message }}
     <div class=" error-message">{{ message }}</div>
     {{/if}}
-
-
-
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up </button>
-
     <p class="account-message">
       Do you already have an account?
       <a href="/auth/login">Login</a>
     </p>
-
   </form>
 </div>

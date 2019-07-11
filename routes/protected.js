@@ -12,7 +12,26 @@ router.get("/profile", loginCheck(), (req, res) => {
   })
     .populate("creator")
     .then(events => {
-      console.log(events);
+      console.log(req.user._id);
+      events = events.map(event => {
+        console.log(event.creator._id, req.user._id);
+
+        if (event.creator._id.toString() === req.user._id.toString()) {
+          console.log("owner");
+          event.owner = true;
+        }
+        return event;
+      });
+
+      events = events.map(event => {
+        console.log(event.creator._id, req.user._id);
+
+        if (event.creator._id.toString() === req.user._id.toString()) {
+          console.log("owner");
+          event.mySlogan = "I am the owner of the event: ";
+        }
+        return event;
+      });
       res.render("protected/profile", { userInfo, events, user: req.user });
     });
 });
