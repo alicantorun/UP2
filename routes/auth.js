@@ -50,11 +50,10 @@ router.post("/signup-edit", (req, res) => {
   User.findByIdAndUpdate(req.user._id, {
     name,
     lastname,
-
+    keyInt,
     password,
     age,
     languages,
-    keyInt,
     city,
     userType,
     bio,

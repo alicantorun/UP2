@@ -3,9 +3,8 @@
     <div class="col-lg-4 col-md-12 p-3 bg-white shadow rounded overflow-hidden">
       <img class="img-thumbnail" src={{userInfo.imageUrl}} alt="">
       <div class="row">
-        <div class="col-4">KEY INT</div>
-        <div class="col-4">KEY INT</div>
-        <div class="col-4">KEY INT</div>
+        <div class="col-4"> My Key Interest is: {{userInfo.keyInt}}</div>
+
         <a href="/auth/signup-edit" class="btn btn-warning btn-sm btn-block mx-3">Edit
           profile</a>
         <a href="/auth/signup-edit" class="btn btn-danger btn-sm btn-block mx-3">Delete
@@ -52,6 +51,7 @@
               <h3>{{name}}</h3>
               <h3>{{creator.name}}</h3>
               <h3>{{mySlogan}}</h3>
+              <h5>This event is about: {{keyCat}}</h5>
               <p>{{description}}</p>
               {{#if owner}}
               <a href="/events/{{_id}}/edit" class="btn btn-warning ">Edit</a>

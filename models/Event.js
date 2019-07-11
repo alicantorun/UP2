@@ -14,9 +14,7 @@ const eventSchema = new Schema(
       }
     ],
     keyCat: {
-      type: String,
-      enum: ["sports", "culture", "casual", "nightlife", "nature", "family"] 
-      
+      type: String
     },
     name: {
       type: String,
@@ -28,7 +26,16 @@ const eventSchema = new Schema(
     },
     imageUrl: String,
     date: Date,
-      
+    message: [
+      {
+        message: String,
+        user: {
+          type: Schema.Types.ObjectId,
+          ref: "User"
+        }
+      }
+    ],
+
     // startTime: {
     //   type: Date,
     //   required: true

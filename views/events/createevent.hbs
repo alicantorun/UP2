@@ -10,6 +10,15 @@
       <textarea rows="4" cols="50" class="form-control" name="description">
 What is your event about...? 
   </textarea>
+      <select name="keyCat" class="custom-select" id="inputGroupSelect03">
+        <option selected>Pick Category...</option>
+        <option value="sport">Sport</option>
+        <option value="party">Party</option>
+        <option value="casual">Casual</option>
+        <option value="culture">Culture</option>
+        <option value="nature">Nature</option>
+        <option value="family">Family</option>
+      </select>
       <label for="name" class="sr-only">Coordinates:</label>
       <input id="latitude" type="text" name="latitude" class="form-control" placeholder="">
       <input id="longtitude" type="text" name="longtitude" class="form-control" placeholder="">
@@ -19,6 +28,8 @@ What is your event about...?
       <button class="btn btn-lg btn-primary btn-block" type="submit">Create Event</button>
     </form>
   </div>
+
+
 
   <!-- MAPBOX UNIT-->
   <div class="col-md-8 col-sm-10 " id='map' style='width: 200px; height: 500px;'></div>

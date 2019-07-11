@@ -1,4 +1,4 @@
-<div class="swipe-event-card" style="display: block;">
+<div class="div-sign-in text-center col-md-4 col-sm-10" style="display: block;">
   <div class="swipe-event-photo" style="display: block; background-image: url({{event.imageUrl}})">
     <div class="event-card-name text-align">{{event.name}}</div>
     <div class="event-card-description">{{event.description}}</div>
@@ -8,6 +8,58 @@
   </div>
   <form action="/events/{{event._id}}/join" method="post" rel="external">
     <button type="submit">Join Event</button>
-
   </form>
 </div>
+
+<div>
+  {{#each event.message}}
+  <h3>{{user.name}}</h3>
+  <p>{{message}}</p>
+  {{/each}}
+</div>
+
+<form action="/events/{{event._id}}/message" method="post" rel="external">
+  <textarea name="message" id="" cols="30" rows="10"></textarea>
+  <button type="submit">Send Message</button>
+</form>
+
+
+
+
+
+<!-- MAPBOX UNIT-->
+<div id='map' style='width: 500px; height: 500px;'></div>
+
+<script>
+
+  const event = {{{ JSON event }}}
+
+  mapboxgl.accessToken = 'pk.eyJ1IjoibW9lYmltYXAiLCJhIjoiY2p4dnVuYnFnMDM3YzNocXA2ZWxmNWVmYyJ9.msRoY578HfxGqb0JzGBbhA';
+  var latitude = document.getElementById('latitude');
+  var longtitude = document.getElementById('longtitude');
+  console.log(event.location.coordinates[0])
+  console.log(event.location.coordinates[1])
+  console.log(event.longtitude)
+
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/moebimap/cjxxqdfc405g61cnywoyv329r',
+    center: [event.location.coordinates[1], event.location.coordinates[0]],
+    zoom: 12
+  });
+  var marker = new mapboxgl.Marker({
+    draggable: true
+  })
+    .setLngLat([event.location.coordinates[1], event.location.coordinates[0]])
+    .addTo(map)
+  function onDragEnd() {
+    var lngLat = marker.getLngLat();
+    latitude.style.display = 'block';
+    latitude.value = lngLat.lng
+    longtitude.style.display = 'block';
+    longtitude.value = lngLat.lat;
+    const latitudeData = lngLat.lat;
+    const longtitudeData = lngLat.lng;
+  }
+  marker.on('dragend', onDragEnd);
+</script>

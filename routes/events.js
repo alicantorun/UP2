@@ -24,7 +24,16 @@ router.get("/createevent", loginCheck(), (req, res, next) => {
 });
 
 router.post("/createevent", (req, res, next) => {
-  const { name, description, date, keyCat, imageUrl, latitude, longtitude } = req.body;
+  console.log(req.body);
+  const {
+    name,
+    description,
+    date,
+    keyCat,
+    imageUrl,
+    latitude,
+    longtitude
+  } = req.body;
   Event.create({
     name,
     imageUrl,
@@ -57,8 +66,15 @@ router.post("/createevent", (req, res, next) => {
 
 router.get("/:eventId", (req, res, next) => {
   Event.findById(req.params.eventId)
-    .populate("creator")
+    .populate([
+      { path: "creator", model: "User" },
+      {
+        path: "message.user",
+        model: "User"
+      }
+    ])
     .then(event => {
+      console.log(event);
       res.render("events/detail", { event, user: req.user });
     })
     .catch(err => {
@@ -85,7 +101,7 @@ router.post("/:eventId/edit", (req, res) => {
     imageUrl,
     description,
     date,
-    keyCat,
+    keyCat
   })
     .then(() => {
       res.redirect(`/events/${req.params.eventId}`);
@@ -126,6 +142,19 @@ router.post("/:eventId/join", loginCheck(), (req, res, next) => {
   })
     .then(() => {
       res.redirect("/protected/profile");
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
+router.post("/:eventId/message", loginCheck(), (req, res, next) => {
+  console.log(req.user._id);
+  Event.findByIdAndUpdate(req.params.eventId, {
+    $push: { message: { message: req.body.message, user: req.user._id } }
+  })
+    .then(() => {
+      res.redirect(`/events/${req.params.eventId}`);
     })
     .catch(err => {
       next(err);

@@ -32,10 +32,9 @@ const userSchema = new Schema(
     languages: {
       type: [String]
     },
-    keyInt: [{
-      type: String,
-      enum: ["sports", "culture", "casual", "nightlife", "nature", "family"]
-    }],
+    keyInt: {
+      type: String
+    },
     userType: {
       type: String,
       enum: ["Admin", "User"],
