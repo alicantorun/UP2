@@ -66,13 +66,13 @@
                     <p class="card-text">{{description}}</p>
                   </div>
                   <div class="profile-buttons-div  d-flex justify-content-center ">
-                    {{#if owner}}
                     <div class="justify-content-center">
+                    {{#if owner}}
                       <a href="/events/{{_id}}/edit" class="btn m-1 btn-warning">Edit</a>
                       <a href="/events/{{_id}}/delete" class="btn m-1 btn-danger">Delete</a>
+                    {{/if}}
                       <a href="/events/{{_id}}/" class="btn m-1 btn-success">Event Detail</a>
                     </div>
-                    {{/if}}
                   </div>
                 </div>
               </div>
