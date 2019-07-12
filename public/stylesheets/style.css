@@ -17,6 +17,9 @@ a {
   border: 1px solid black;
   height: 90vh; }
 
+.pop-up-card {
+  background-color: rgba(0, 0, 0, 0.2); }
+
 @media (min-width: 768px) {
   .position-md-absolute {
     position: absolute; }

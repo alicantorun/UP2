@@ -43,25 +43,32 @@
       ], // starting position [lng, lat]
       zoom: 12,
       style: 'mapbox://styles/moebimap/cjxxqdfc405g61cnywoyv329r'
-  });
+    });
 
     const events = {{{ JSON events }}}
 
 
+
     events.forEach(event => {
       let popup = new mapboxgl.Popup({ offset: 0, className: 'my-class' })
-        .setHTML(`<div class="popup"><p>${event.name}</p><p>${event.date}</p><p>${event.keyCat}</p><p>${event.description}</p><img src="${event.imageUrl}" alt="" style='width:150px;'><a href="events/${event._id}"">see details</a></div>`)
+        .setHTML(`<div class="popup" style="display: block; round; shadow; color:white; width:400px; height:250px; background-image: url('${event.imageUrl}')">
+          <h3 class="pt-3 pl-4">${event.name}</h3>
+          <h5 class="pl-4">${event.date}</h5>
+          <h5 class="pl-4">${event.keyCat}</h5>
+          <h5 class="pl-4">${event.description}</h5>
+          <a class="ml-4 mt-5 btn btn-success" href="events/${event._id}"">see details</a>
+          </div>`)
         .setMaxWidth("none")
-  
+
       var el = document.createElement('div');
-        el.className = 'marker';
-        el.style.backgroundImage = `url(/images/${event.keyCat}.png)`;
-        el.style.backgroundSize = "cover"
-        el.style.backgroundPosition = "center"
-        el.style.boxShadow = '0 5px 5px black';
-        el.style.borderRadius = '50%'
-        el.style.width = '40px';
-        el.style.height = '40px';
+      el.className = 'marker';
+      el.style.backgroundImage = `url(/images/${event.keyCat}.png)`;
+      el.style.backgroundSize = "cover"
+      el.style.backgroundPosition = "center"
+      el.style.boxShadow = '0 5px 5px black';
+      el.style.borderRadius = '50%'
+      el.style.width = '40px';
+      el.style.height = '40px';
       let marker = new mapboxgl.Marker(el)
         .setLngLat(event.location.coordinates)
         .setPopup(popup)
@@ -74,8 +81,8 @@
       language: 'en'
     });
 
- 
-      
+
+
 
     document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
   </script>
