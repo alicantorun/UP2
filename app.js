@@ -96,7 +96,7 @@ hbs.registerHelper("ifCond", function(v1, operator, v2, options) {
 hbs.registerHelper("JSON", data => JSON.stringify(data));
 
 // default value for title local
-app.locals.title = "Express - Generated with IronGenerator";
+app.locals.title = "UP2 - Next Generation Event Finder";
 
 // Enable authentication using session + passport
 app.use(
