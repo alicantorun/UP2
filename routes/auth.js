@@ -34,7 +34,15 @@ router.get("/signup-edit", (req, res, next) => {
 
 router.post("/signup-edit", (req, res) => {
   const user = req.user;
+  let int = [];
+
   const {
+    sport,
+    party,
+    casual,
+    culture,
+    nature,
+    family,
     name,
     lastname,
     password,
@@ -46,11 +54,29 @@ router.post("/signup-edit", (req, res) => {
     bio,
     imageUrl
   } = req.body;
+  if (!!sport) {
+    int.push("sport");
+  }
+  if (!!party) {
+    int.push("party");
+  }
+  if (!!casual) {
+    int.push("casual");
+  }
+  if (!!culture) {
+    int.push("culture");
+  }
+  if (!!nature) {
+    int.push("nature");
+  }
+  if (!!family) {
+    int.push("family");
+  }
 
   User.findByIdAndUpdate(req.user._id, {
     name,
     lastname,
-    keyInt,
+    keyInt: int,
     password,
     age,
     languages,
@@ -60,7 +86,7 @@ router.post("/signup-edit", (req, res) => {
     imageUrl
   })
     .then(() => {
-      res.redirect(`/`);
+      res.redirect(`/protected/profile`);
     })
     .catch(err => {
       console.log("Error while updating the book: ", err);

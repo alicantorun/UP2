@@ -16,7 +16,8 @@
     <label for="textarea" class="sr-only">Bio:</label>
     <textarea rows="4" cols="50" class="form-control" value="{{user.bio}}"
       name="bio">Tell us about yourself...</textarea>
-    <select name="keyInt" class="custom-select" id="inputGroupSelect04">
+
+    {{!-- <select name="keyInt" class="custom-select" id="inputGroupSelect04">
       <option selected>What describes you...</option>
       <option value="sport">Sport</option>
       <option value="party">Party</option>
@@ -24,7 +25,21 @@
       <option value="culture">Culture</option>
       <option value="nature">Nature</option>
       <option value="family">Family</option>
-    </select>
+    </select> --}}
+
+    <input type="checkbox" id="sport" name="sport">
+    <label for="sport">Sport</label>
+    <input type="checkbox" id="party" name="party">
+    <label for="party">Party</label>
+    <input type="checkbox" id="casual" name="casual">
+    <label for="casual">Casual</label>
+    <input type="checkbox" id="culture" name="culture">
+    <label for="culture">Culture</label>
+    <input type="checkbox" id="nature" name="nature">
+    <label for="nature">Nature</label>
+    <input type="checkbox" id="family" name="family">
+    <label for="family">Family</label>
+
     {{#if message }}
     <div class=" error-message">{{ message }}</div>
     {{/if}}
