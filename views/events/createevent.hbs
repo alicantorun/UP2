@@ -39,10 +39,32 @@ What is your event about...?
   <div class="col-md-8 col-sm-10 " id='map' style='width: 200px; height: 500px;'></div>
 </div>
 
+<div class="text-center">
+  <button id="upload_widget" class="btn btn-lg btn-primary mt-3">Upload Your Event Photo</button></div>
+</div>
+
+
+<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
 
 
 <script>
+  document.getElementById("imageUrl").style.display = "none"
 
+  var myWidget = cloudinary.createUploadWidget({
+    cloudName: 'dxzzpf0xm',
+    uploadPreset: 'up2UserImages'
+  }, (error, result) => {
+    if (!error && result && result.event === "success") {
+      console.log('Done! Here is the image info: ', result.info.secure_url);
+
+      document.getElementById("imageUrl").value = result.info.secure_url;
+    }
+  }
+  )
+
+  document.getElementById("upload_widget").addEventListener("click", function () {
+    myWidget.open();
+  }, false);
 
 
   mapboxgl.accessToken = 'pk.eyJ1IjoibW9lYmltYXAiLCJhIjoiY2p4dnVuYnFnMDM3YzNocXA2ZWxmNWVmYyJ9.msRoY578HfxGqb0JzGBbhA';
