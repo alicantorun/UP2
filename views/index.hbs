@@ -197,6 +197,32 @@
     });
 
 
+    const geolocate = new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true
+      },
+      trackUserLocation: true
+    })
+
+    map.addControl(geolocate)
+
+    map.on('load', function () {
+      geolocate.trigger();
+    });
+
+    geolocate.on('geolocate', function () {
+
+      //Get the updated user location, this returns a javascript object.
+      var userlocation = geolocate._lastKnownPosition;
+
+      //Your work here - Get coordinates like so
+      var lat = userlocation.coords.latitude;
+      var lng = userlocation.coords.longitude;
+
+      console.log(lat, lng)
+
+    });
+
 
 
     document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
