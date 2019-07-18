@@ -204,13 +204,17 @@
       trackUserLocation: true
     })
 
+
     map.addControl(geolocate)
 
-    map.on('load', function () {
+    setTimeout(map.on('load', function () {
       geolocate.trigger();
-    });
+    });, 3000);
 
-    geolocate.on('geolocate', function () {
+
+
+
+    setTimeout(geolocate.on('geolocate', function () {
 
       //Get the updated user location, this returns a javascript object.
       var userlocation = geolocate._lastKnownPosition;
@@ -221,7 +225,9 @@
 
       console.log(lat, lng)
 
-    });
+    });, 3000);
+
+
 
 
 
