@@ -2,6 +2,10 @@
   <div class="div-sign-in text-center col-md-4 col-sm-10">
     <form action="/events/createevent" method="POST" class="form-signin">
       <h1 class="h3 mb-3 font-weight-normal">Create Your Event</h1>
+      <div class="div-sign-in-photoupload">
+        <h1 id="upload_widget" name="cloudinary" class="btn btn-lg btn-block btn-primary mt-2">Upload events
+          Photo</h1>
+      </div>
       <label for="name" class="sr-only">Name:</label>
       <input id="name" type="text" name="name" class="form-control" placeholder="Name...">
       <label for="imageUrl" class="sr-only">Image Url:</label>
@@ -37,10 +41,6 @@ What is your event about...?
 
   <!-- MAPBOX UNIT-->
   <div class="col-md-8 col-sm-10 " id='map' style='width: 200px; height: 500px;'></div>
-</div>
-
-<div class="text-center">
-  <button id="upload_widget" class="btn btn-lg btn-primary mt-3">Upload Your Event Photo</button></div>
 </div>
 
 

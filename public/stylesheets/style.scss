@@ -4,7 +4,7 @@ html {
   margin: 0;
   box-sizing: border-box;
   background-color: #f5f5f5;
-  font-family: "Hind Siliguri", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 a {
@@ -50,6 +50,21 @@ $padding-x-for-navbar-brand-or-logo-in-px: 16px;
     margin-right: $width-of-navbar-brand-or-logo-in-px +
       ($padding-x-for-navbar-brand-or-logo-in-px * 2);
   }
+}
+@media (max-width: 768px) {
+  .navbar-brand img {
+    display: none;
+  }
+}
+
+.navbar {
+  font-size: 1.15rem;
+  padding: 0;
+  margin: 0;
+}
+.nav-item:hover {
+  font-size: 1.15rem;
+  background-color: red;
 }
 
 //
@@ -140,11 +155,11 @@ $padding-x-for-navbar-brand-or-logo-in-px: 16px;
 // STYLE FOR NAVBAR
 
 .navbar {
-  background-color: #ff812d !important;
+  background-color: #f96d15 !important;
 }
 
 .footer-div {
-  background-color: #ff812d !important;
+  background-color: #f96d15 !important;
   height: 50px;
   margin-top: 50px;
 }
@@ -226,8 +241,16 @@ $padding-x-for-navbar-brand-or-logo-in-px: 16px;
   -webkit-box-pack: center;
   justify-content: center;
   padding-top: 40px;
-  padding-bottom: 40px;
   background-color: #f5f5f5;
+}
+
+.div-sign-in-photoupload {
+  margin: 0;
+  padding: 0;
+}
+
+#upload_widget {
+  cursor: pointer;
 }
 
 .form-signin {

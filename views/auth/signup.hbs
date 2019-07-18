@@ -1,26 +1,33 @@
-<div class="div-sign-in text-center">
-  <form action="/auth/signup" method="POST" class="form-signin">
-    <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
-    <label for="name" class="sr-only">Name:</label>
-    <input id="name" type="text" name="name" class="form-control" placeholder="Name...">
-    <label for="lastname" class="sr-only">Lastname:</label>
-    <input id="lastname" type="text" name="lastname" class="form-control" placeholder="Lastname...">
-    <label for="imageUrl" class="sr-only">Image Url:</label>
-    <input id="imageUrl" type="url" name="imageUrl" class="form-control" placeholder="Image link...">
-    <label for="age" class="sr-only">Age:</label>
-    <input id="city" type="text" name="city" class="form-control" placeholder="Your city...">
-    <label for="city" class="sr-only">City:</label>
-    <input id="age" type="text" name="age" class="form-control" placeholder="Age...">
-    <label for="username" class="sr-only">Email</label>
-    <input id="username" type="text" name="username" class="form-control" placeholder="Email...">
-    <label for="password" class="sr-only">Password</label>
-    <input id="password" type="password" name="password" class="form-control" placeholder="Your password">
-    <label for="textarea" class="sr-only">Bio:</label>
-    <textarea rows="4" cols="50" class="form-control" name="bio">
+<div class="contaier d-flex flex-column">
+  <div class="div-sign-in text-center">
+    <form action="/auth/signup" method="POST" class="form-signin">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+      <div class="div-sign-in-photoupload">
+        <h1 id="upload_widget" name="cloudinary" class="btn btn-lg btn-block btn-primary mt-2">Upload Profile
+          Photo</h1>
+      </div>
+      <label for="name" class="sr-only">Name:</label>
+      <input id="name" type="text" name="name" class="form-control" placeholder="Name...">
+      <label for="lastname" class="sr-only">Lastname:</label>
+      <input id="lastname" type="text" name="lastname" class="form-control" placeholder="Lastname...">
+
+      <label for="imageUrl" class="sr-only">Image Url:</label>
+      <input id="imageUrl" type="url" name="imageUrl" class="form-control" placeholder="Image link...">
+      <label for="age" class="sr-only">Age:</label>
+      <input id="city" type="text" name="city" class="form-control" placeholder="Your city...">
+      <label for="city" class="sr-only">City:</label>
+      <input id="age" type="text" name="age" class="form-control" placeholder="Age...">
+      <label for="username" class="sr-only">Email</label>
+      <input id="username" type="text" name="username" class="form-control" placeholder="Email...">
+
+      <label for="password" class="sr-only">Password</label>
+      <input id="password" type="password" name="password" class="form-control" placeholder="Your password">
+      <label for="textarea" class="sr-only">Bio:</label>
+      <textarea rows="4" cols="50" class="form-control" name="bio">
 Tell us about yourself... 
   </textarea>
 
-    {{!-- <select name="keyInt" class="custom-select" id="inputGroupSelect04">
+      {{!-- <select name="keyInt" class="custom-select" id="inputGroupSelect04">
       <option selected>What describes you...</option>
       <option value="sport">Sport</option>
       <option value="party">Party</option>
@@ -30,46 +37,44 @@ Tell us about yourself...
       <option value="family">Family</option>
     </select> --}}
 
-    <input type="checkbox" id="sport" name="sport">
-    <label for="sport">Sport</label>
-    <input type="checkbox" id="party" name="party">
-    <label for="party">Party</label>
-    <input type="checkbox" id="casual" name="casual">
-    <label for="casual">Casual</label>
-    <input type="checkbox" id="culture" name="culture">
-    <label for="culture">Culture</label>
-    <input type="checkbox" id="nature" name="nature">
-    <label for="nature">Nature</label>
-    <input type="checkbox" id="family" name="family">
-    <label for="family">Family</label>
-
-
-    {{#if message }}
-    <div class=" error-message">{{ message }}</div>
-    {{/if}}
-    <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Sign Up </button>
-    <p class="account-message mt-2">
-      Do you already have an account?
-      <a href="/auth/login">Login</a>
-    </p>
-  </form>
+      <input type="checkbox" id="sport" name="sport">
+      <label for="sport">Sport</label>
+      <input type="checkbox" id="party" name="party">
+      <label for="party">Party</label>
+      <input type="checkbox" id="casual" name="casual">
+      <label for="casual">Casual</label>
+      <input type="checkbox" id="culture" name="culture">
+      <label for="culture">Culture</label>
+      <input type="checkbox" id="nature" name="nature">
+      <label for="nature">Nature</label>
+      <input type="checkbox" id="family" name="family">
+      <label for="family">Family</label>
 
 
 
+      {{#if message }}
+      <div class=" error-message">{{ message }}</div>
+      {{/if}}
+      <button class="btn btn-lg btn-primary btn-block mt-3" name="submit">Sign Up </button>
+      <p class="account-message mt-2">
+        Do you already have an account?
+        <a href="/auth/login">Login</a>
+      </p>
+    </form>
+  </div>
 
-
-  <!-- Cloudinary Image Upload -->
-  <div class="text-center">
-    <button id="upload_widget" class="btn btn-lg btn-primary mt-3">Upload Your Profile Photo</button></div>
+</div>
 </div>
 
 
+
+
+<!-- Cloudinary Image Upload -->
+
+
 <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
-
-
 <script type="text/javascript">
   document.getElementById("imageUrl").style.display = "none"
-
   var myWidget = cloudinary.createUploadWidget({
     cloudName: 'dxzzpf0xm',
     uploadPreset: 'up2UserImages'
@@ -81,10 +86,7 @@ Tell us about yourself...
     }
   }
   )
-
   document.getElementById("upload_widget").addEventListener("click", function () {
     myWidget.open();
   }, false);
 </script>
-
-<!-- Cloudinary Image Upload -->

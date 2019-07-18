@@ -4,7 +4,7 @@ html {
   margin: 0;
   box-sizing: border-box;
   background-color: #f5f5f5;
-  font-family: "Hind Siliguri", sans-serif; }
+  font-family: "Poppins", sans-serif; }
 
 a {
   color: #59656f; }
@@ -30,6 +30,19 @@ a {
     position: absolute; }
   .navbar-nav .nav-item:nth-child(2) {
     margin-right: 192px; } }
+
+@media (max-width: 768px) {
+  .navbar-brand img {
+    display: none; } }
+
+.navbar {
+  font-size: 1.15rem;
+  padding: 0;
+  margin: 0; }
+
+.nav-item:hover {
+  font-size: 1.15rem;
+  background-color: red; }
 
 /* TINDER CARD SWIPING EFFECT IMPLEMENTATION */
 #swipe-event-container {
@@ -106,10 +119,10 @@ a {
   text-shadow: none; }
 
 .navbar {
-  background-color: #ff812d !important; }
+  background-color: #f96d15 !important; }
 
 .footer-div {
-  background-color: #ff812d !important;
+  background-color: #f96d15 !important;
   height: 50px;
   margin-top: 50px; }
 
@@ -175,8 +188,14 @@ a {
   -webkit-box-pack: center;
   justify-content: center;
   padding-top: 40px;
-  padding-bottom: 40px;
   background-color: #f5f5f5; }
+
+.div-sign-in-photoupload {
+  margin: 0;
+  padding: 0; }
+
+#upload_widget {
+  cursor: pointer; }
 
 .form-signin {
   width: 100%;
