@@ -197,11 +197,13 @@
     })
 
 
-    map.addControl(geolocate)
+    setTimeout(map.addControl(geolocate), 000);
+
+
 
     setTimeout(map.on('load', function () {
       geolocate.trigger();
-    }), 3000);
+    }), 000);
 
 
 
