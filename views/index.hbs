@@ -57,7 +57,7 @@
     z-index: 3;
     border: 4px solid #Fff;
     top: 50%;
-    animation: loader 1s infinite ease;
+    animation: loader 2s infinite ease;
   }
 
 
@@ -67,7 +67,7 @@
     display: inline-block;
     width: 100%;
     background-color: #fff;
-    animation: loader-inner 1s infinite ease-in;
+    animation: loader-inner 2s infinite ease-in;
   }
 
   @keyframes loader {
@@ -158,7 +158,7 @@
 
     events.forEach(event => {
       let popup = new mapboxgl.Popup({ offset: 0, className: 'my-class' })
-        .setHTML(`<div class="popup" style="display: block; round; shadow; color:white; width:400px; height:250px; background-image: url('${event.imageUrl}')">
+        .setHTML(`<div class="mapbox-popup" style=" display: block; round; shadow; color:white; background-image: url('${event.imageUrl}')">
           <h3 class="pt-3 pl-4">${event.name}</h3>
           <h5 class="pl-4">${event.date}</h5>
           <h5 class="pl-4">${event.keyCat}</h5>
@@ -172,8 +172,6 @@
       el.style.backgroundImage = `url(/images/${event.keyCat}.png)`;
       el.style.backgroundSize = "cover"
       el.style.backgroundPosition = "center"
-      el.style.boxShadow = '0 5px 5px black';
-      el.style.borderRadius = '50%'
       el.style.width = '40px';
       el.style.height = '40px';
       let marker = new mapboxgl.Marker(el)

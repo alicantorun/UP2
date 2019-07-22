@@ -35,6 +35,10 @@ a {
   .navbar-brand img {
     display: none; } }
 
+@media (max-width: 768px) {
+  .detail-map {
+    height: 60vh; } }
+
 .navbar {
   font-size: 1.15rem;
   padding: 0;
@@ -43,6 +47,15 @@ a {
 .nav-item:hover {
   font-size: 1.15rem;
   background-color: red; }
+
+.mapbox-popup {
+  width: 400px;
+  height: 250px; }
+
+@media (max-width: 768px) {
+  .mapbox-popup {
+    width: 80vw;
+    height: 40vh; } }
 
 /* TINDER CARD SWIPING EFFECT IMPLEMENTATION */
 #swipe-event-container {

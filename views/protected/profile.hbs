@@ -1,6 +1,6 @@
 <div class="container mt-3">
-  <div class="row justify-content-around">
-    <div class="col-lg-4 col-md-12 bg-white d-flex  flex-column shadow overflow-hidden">
+  <div class="row justify-content-between">
+    <div class="col-lg-5 col-md-12 bg-white d-flex flex-column shadow overflow-hidden">
       <div class=" d-flex justify-content-center">
         <img class="profile-photo p-1 m-5 rounded-circle shadow" src={{userInfo.imageUrl}} alt="">
       </div>
@@ -41,6 +41,10 @@
 
 
 <div class="container-fluid ">
+  <div class="container bg-white shadow mt-3 py-2">
+
+    <h1>My Events</h1>
+  </div>
   <div class="container bg-white shadow mt-3">
     <div id="carouselExampleControls" class="carousel slide" data-keyboard="true" data-touch="true">
       <div class="carousel-inner">
@@ -67,10 +71,10 @@
                   </div>
                   <div class="profile-buttons-div  d-flex justify-content-center ">
                     <div class="justify-content-center">
-                    {{#if owner}}
+                      {{#if owner}}
                       <a href="/events/{{_id}}/edit" class="btn m-1 btn-warning">Edit</a>
                       <a href="/events/{{_id}}/delete" class="btn m-1 btn-danger">Delete</a>
-                    {{/if}}
+                      {{/if}}
                       <a href="/events/{{_id}}/" class="btn m-1 btn-success">Event Detail</a>
                     </div>
                   </div>
