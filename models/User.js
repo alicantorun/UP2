@@ -42,7 +42,7 @@ const userSchema = new Schema(
     },
     bio: {
       type: String,
-      minlength: 1,
+      minlength: 5,
       maxlength: 500
     },
     imageUrl: String,
